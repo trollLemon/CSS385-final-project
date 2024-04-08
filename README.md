@@ -11,9 +11,9 @@ Due: May 26, 2024<br>
 
 ### Team
 
-Haydn Tamura \n
-Muhammad Cheema \n 
-Christopher Long \n
+# Haydn Tamura 
+# Muhammad Cheema  
+# Christopher Long 
 
 ### Related Games
 1. bla
