@@ -1,7 +1,6 @@
 # CSS385-final-project
 
 ## Details
-Author: [Christopher Long](https://www.linkedin.com/in/christopher--long/), , , <br>
 Date: 4/8/2024<br>
 Written in: Unity<br>
 
@@ -17,6 +16,6 @@ Christopher Long<br>
 Taschen Park<br>
 
 ### Related Games
-1. bla
-2. bla
+1. Minecraft 
+2. Enter The Gungeon 
 3. bla
