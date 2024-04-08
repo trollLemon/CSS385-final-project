@@ -4,19 +4,19 @@ Top down survival game where you chop trees during the day, and build light sour
 ### [WebGL Link to Game](PLACE LINK HERE!)
 
 ## Details
-Date: 4/8/2024<br>
-Written in: Unity<br>
-
-Professor: Yusuf Pisan<br>
-Email: pisan@uw.edu<br>
-Due: May 26, 2024<br>
 
 ### Team
-
 Haydn Tamura<br>
 Muhammad Cheema<br>
 Christopher Long<br>
 Taschen Park<br>
+
+### Assignment
+Date: 4/8/2024<br>
+Professor: Yusuf Pisan<br>
+Email: pisan@uw.edu<br>
+Due: May 26, 2024<br>
+Written in: Unity<br>
 
 ### Related Games
 1.Enter the Gungeon - Top down 2D gameplay: player traverses a 2D environment and controls with WASD and mouse (for attacking and interacting in 360 degrees) <br><br>
