@@ -1,7 +1,7 @@
 # CSS385-final-project
 Top down survival game where you chop trees during the day, and build light sources and structures to survive waves of enemies at night.
 
-### [WebGL Link to Game] https://trolllemon.github.io/CSS385-final-project/Builds/
+### [WebGL Link to Game](https://trolllemon.github.io/CSS385-final-project/Builds/)
 
 ## Details
 
