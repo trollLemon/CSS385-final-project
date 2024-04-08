@@ -1,6 +1,6 @@
 # CSS385-final-project
 
-# Description
+## Description
 Top down survival game where you chop trees during the day, and build light sources and structures to survive waves of enemies at night.
 
 ## Details
