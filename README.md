@@ -17,6 +17,6 @@ Christopher Long<br>
 Taschen Park<br>
 
 ### Related Games
-1. Minecraft 
-2. Enter The Gungeon 
-3. bla
+Enter the Gungeon - Top down 2D gameplay: player traverses a 2D environment and controls with WASD and mouse (for attacking and interacting in 360 degrees) 
+Minecraft - Survival aspect, enemies come out at night, player prepares during the day 
+Don't Starve - Top down 2D gameplay, player gathers resources by chopping trees, day night cycles, building mechanics for defending agianst enemies
