@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 5.0f;
-    private float verticleInput;
-    private float horizontalInput;
+    public float maxSpeed = 10f;
+    public float sensitivity = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -17,30 +16,24 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Get player input
-        verticleInput = Input.GetAxis("Vertical");
-        horizontalInput = Input.GetAxis("Horizontal");
+        // Get input from joystick axes
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
 
-        // Move Player
-        if (Input.GetKey(KeyCode.W))
+        // Calculate movement direction
+        Vector3 moveDirection = new Vector3(horizontalInput, verticalInput, 0f);
+
+        // Calculate speed based on joystick tilt
+        float speed = moveDirection.magnitude * maxSpeed * sensitivity;
+
+        // Normalize the moveDirection if it's not zero to keep the same direction but adjust speed
+        if (moveDirection != Vector3.zero)
         {
-            transform.Translate(Vector3.up * Time.deltaTime * speed * verticleInput);
+            moveDirection.Normalize();
         }
 
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(Vector3.up * Time.deltaTime * speed * verticleInput);
-        }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
-        }
+        // Move the cube
+        transform.Translate(moveDirection * speed * Time.deltaTime);
         
     }
 }
