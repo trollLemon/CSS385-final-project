@@ -10,7 +10,6 @@ Top down survival game where you chop trees during the day, and build light sour
 
 ### Team
 * Haydn Tamura<br>
-* Muhammad Cheema<br>
 * Christopher Long<br>
 * Taschen Park<br>
 
