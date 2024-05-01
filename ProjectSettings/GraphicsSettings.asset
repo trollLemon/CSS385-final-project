@@ -3,6 +3,7 @@
 --- !u!30 &1
 GraphicsSettings:
   m_ObjectHideFlags: 0
+
   serializedVersion: 15
   m_Deferred:
     m_Mode: 1
