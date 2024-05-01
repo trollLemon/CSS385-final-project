@@ -40,6 +40,10 @@ public class Torch : MonoBehaviour
         intensity-=decay;
         intensity = Mathf.Max(0,intensity);
         gameLight.intensity=intensity;
+        if(intensity ==0){
+            Destroy(gameObject.transform.parent.gameObject);
+            Destroy(gameObject);
+        }
      
 
         
