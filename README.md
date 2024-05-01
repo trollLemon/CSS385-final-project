@@ -7,8 +7,6 @@ Top down survival game where you chop trees during the day, and build light sour
 ### [Movement Demo](https://trolllemon.github.io/CSS385-final-project/Builds/MovementDemo/) 4/24/2024
 ### [Movement and Light Demo](https://trolllemon.github.io/CSS385-final-project/Builds/MovementAndLighting/) 5/1/2024
 
-MovementAndLighting
-
 ## Details
 
 ### Team
