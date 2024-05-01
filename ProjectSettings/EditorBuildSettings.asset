@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Forest Scene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Crafting Demo.unity
     guid: 177e9405f50e15cb090c1fee62c258e8
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Concept_Level.unity
     guid: 3ddcc9a4e7b2f084eb94d230151e3d0d
   m_configObjects: {}
