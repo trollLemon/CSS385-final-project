@@ -16,6 +16,9 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        torches = 0;
+        coal = 10;
+        sticks= 12;
     }
 
     // Update is called once per frame
