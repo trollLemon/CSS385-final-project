@@ -15,7 +15,9 @@ public class AimController : MonoBehaviour
 
     PlayerController playerController;
 
+    public GameObject torch;
 
+    public GameObject range;
     void Start()
     {
         // Get the main camera in the scene
@@ -23,11 +25,19 @@ public class AimController : MonoBehaviour
 
         player = GameObject.Find("Player");
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        range = GameObject.Find("Range");
     }
 
 
     private void Update()
     {
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+
+            Vector3 place = range.transform.position;
+            Instantiate(torch,place,Quaternion.identity);
+        }
 
         // Calculate angle between current rotation and target direction
         Vector3 targetDirection = playerController.getAimInput();

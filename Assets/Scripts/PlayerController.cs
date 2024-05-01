@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     // Is Contoller or Mouse/Keyboard in use?
     private bool controllerInUse;
 
+    private SpriteRenderer spr;
+
     private void OnHorizontalMovement(InputValue axis)
     {
         horizontalInput = axis.Get<float>();
@@ -54,6 +56,11 @@ public class PlayerController : MonoBehaviour
         }
     }
     
+    void Start(){
+
+        spr=GetComponent<SpriteRenderer>();
+
+    }
     // Update is called once per frame
     void Update()
     {
@@ -73,6 +80,17 @@ public class PlayerController : MonoBehaviour
 
         // Calculate movement direction
         Vector3 moveDirection = new Vector3(horizontalInput, verticalInput, 0f);
+
+        Debug.Log(horizontalInput);
+
+        if(horizontalInput>0){
+            spr.flipX=true;
+        }
+
+        if(horizontalInput<0){
+            spr.flipX=false;
+
+        }
 
         // Calculate speed based on joystick tilt
         float speed = moveDirection.magnitude * maxSpeed * sensitivity;

@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    private SpriteRenderer spr;
     public float maxSpeed = 10f;
     public float sensitivity = 1f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        spr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -19,6 +21,14 @@ public class PlayerMovement : MonoBehaviour
         // Get input from joystick axes
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
+
+
+        //if(horizontalInput>0){
+        //    spr.flipX=true;
+        //else{
+        //    spr.flipX=false;
+        //
+
 
         // Calculate movement direction
         Vector3 moveDirection = new Vector3(horizontalInput, verticalInput, 0f);
