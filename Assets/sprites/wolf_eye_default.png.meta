@@ -6,7 +6,7 @@ TextureImporter:
       213: -5855113148760858287
     second: wolf_eye_default_0
   externalObjects: {}
-  serializedVersion: 13
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      wolf_eye_default_0: -5855113148760858287
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

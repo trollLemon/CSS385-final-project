@@ -6,7 +6,7 @@ TextureImporter:
       213: -2594002647407161727
     second: footprint_snow_0
   externalObjects: {}
-  serializedVersion: 13
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      footprint_snow_0: -2594002647407161727
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

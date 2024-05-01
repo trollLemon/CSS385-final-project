@@ -6,7 +6,7 @@ TextureImporter:
       213: 7597661417648584606
     second: top_edge_forest_0
   externalObjects: {}
-  serializedVersion: 13
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      top_edge_forest_0: 7597661417648584606
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
