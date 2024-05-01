@@ -2,9 +2,9 @@
 Top down survival game where you chop trees during the day, and build light sources and structures to survive waves of enemies at night.
 
 ## WebGL Links
-### [Base Game](https://trolllemon.github.io/CSS385-final-project/Builds/) 4/8/2024
-### [Lighting Demo](https://trolllemon.github.io/CSS385-final-project/LightingDemo/) 4/23/2024
-### [Movement Demo](https://trolllemon.github.io/CSS385-final-project/MovementDemo/) 4/24/2024
+### [Base Game](https://trolllemon.github.io/CSS385-final-project/Builds/BaseDemo) 4/8/2024
+### [Lighting Demo](https://trolllemon.github.io/CSS385-final-project/Builds/LightingDemo/) 4/23/2024
+### [Movement Demo](https://trolllemon.github.io/CSS385-final-project/Builds/MovementDemo/) 4/24/2024
 
 ## Details
 
