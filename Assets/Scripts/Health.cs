@@ -43,7 +43,7 @@ private Vector3 initialPosition;
         dmg--;
         healthbar.SetHealth(currHealth);
         
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(0.02f);
         }
         
     }

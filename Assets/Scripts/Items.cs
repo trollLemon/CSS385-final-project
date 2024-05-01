@@ -20,5 +20,10 @@ public class Items : MonoBehaviour
         {
             items.switchItems();
         }
+
+        if(Input.GetKeyDown(KeyCode.E)){
+
+            items.craftTorch();
+        }
     }
 }
