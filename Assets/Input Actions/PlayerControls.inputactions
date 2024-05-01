@@ -2,7 +2,7 @@
     "name": "PlayerControls",
     "maps": [
         {
-            "name": "Movement",
+            "name": "Player",
             "id": "62e561d1-3d9e-44bb-bed1-d627ce1a4a09",
             "actions": [
                 {
@@ -19,6 +19,15 @@
                     "type": "PassThrough",
                     "id": "ecb36693-4086-4de9-bd32-bb0f37e27b88",
                     "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Aim",
+                    "type": "PassThrough",
+                    "id": "5e967da3-99a1-4666-bf66-d2c8a333e1cf",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -156,27 +165,10 @@
                     "action": "VerticalMovement",
                     "isComposite": false,
                     "isPartOfComposite": true
-                }
-            ]
-        },
-        {
-            "name": "Aiming",
-            "id": "3f538c23-fda6-495d-8c9e-6361f8534c45",
-            "actions": [
-                {
-                    "name": "Aim",
-                    "type": "PassThrough",
-                    "id": "81fbd34d-ea0e-4999-9ba3-376a30db4158",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
+                },
                 {
                     "name": "",
-                    "id": "83ce1c6b-c6bf-439e-a39d-9f6aa309eef6",
+                    "id": "88365070-d348-4ea6-82de-cf727ad5b00c",
                     "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
@@ -187,7 +179,7 @@
                 },
                 {
                     "name": "",
-                    "id": "a8562083-0408-46b4-9a68-733ec0330d0f",
+                    "id": "f647fdca-05ee-4329-a729-39c23f6b9ce8",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
@@ -211,7 +203,7 @@
                 },
                 {
                     "devicePath": "<Mouse>",
-                    "isOptional": false,
+                    "isOptional": true,
                     "isOR": false
                 }
             ]
@@ -222,7 +214,7 @@
             "devices": [
                 {
                     "devicePath": "<Gamepad>",
-                    "isOptional": true,
+                    "isOptional": false,
                     "isOR": false
                 }
             ]
