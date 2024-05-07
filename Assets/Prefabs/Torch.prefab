@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 989239024791931542}
   - component: {fileID: 7411711881176606218}
+  - component: {fileID: 5723162312503948144}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -27,8 +28,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 16, y: 16, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 20.1, y: 20.1, z: 1.25625}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2116463942151045220}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -84,6 +85,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!208 &5723162312503948144
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2158551620028635844}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &4808838240312471003
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,6 +370,6 @@ MonoBehaviour:
   gameLight: {fileID: 0}
   intensity: 0
   outer_rad: 0
-  decay: 0.00001
-  rad_decay: 0.00001
-  ocil: 39.8
+  decay: 0.0001
+  rad_decay: 0.001
+  ocil: 10
