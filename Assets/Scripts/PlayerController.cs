@@ -7,6 +7,9 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
 
+    // animator
+    public Animator animator;
+
     // Movement Settings
     public float maxSpeed = 10f;
     public float sensitivity = 1f;
@@ -91,6 +94,8 @@ public class PlayerController : MonoBehaviour
             spr.flipX=false;
 
         }
+
+        animator.setFloat("player_speed", Mathf.Abs(speed));
 
         // Calculate speed based on joystick tilt
         float speed = moveDirection.magnitude * maxSpeed * sensitivity;
