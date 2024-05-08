@@ -6,7 +6,7 @@ TextureImporter:
       213: 6674386295937086461
     second: axe_0
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -97,6 +97,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -116,12 +129,12 @@ TextureImporter:
       name: axe_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 2
-        width: 253
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 6
+        y: 3
+        width: 120
+        height: 253
+      alignment: 9
+      pivot: {x: 0.75531536, y: 0.30459154}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -136,7 +149,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: df7fc53cc0c5a5e48ac301149bb35e46
     internalID: 0
     vertices: []
     indices: 

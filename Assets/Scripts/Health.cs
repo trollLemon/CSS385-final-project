@@ -22,10 +22,7 @@ private Vector3 initialPosition;
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            DamagePlayer(5);
-        }
+    
 
     }
 

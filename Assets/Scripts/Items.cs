@@ -21,8 +21,8 @@ public class Items : MonoBehaviour
             items.switchItems();
         }
 
-        if(Input.GetKeyDown(KeyCode.E)){
-
+        if(Input.GetKeyDown(KeyCode.R)){
+            Debug.Log("Craft Torch");
             items.craftTorch();
         }
     }
