@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     public GameObject exit;
     private int choice;
     public int goldHeld=0;
+
+    private int health = 100;
     
     NavMeshAgent agent;
     // Start is called before the first frame update
@@ -45,6 +47,18 @@ public class Enemy : MonoBehaviour
     }
 
 
+    private void Die(){
+        
+        //TODO:Drop stuff: gold, crafting mats
+        Destroy(gameObject);
+    }
+
+    public void Damage(int dmg){
+        health-=dmg;
+
+        if(health<=0) Die();
+    }
+
     void PerformNextAction(){
 
         
@@ -53,7 +67,7 @@ public class Enemy : MonoBehaviour
         // so we do not need to worry about if this statement executes when the enemy attacks the player. 
 
         if(Vector3.Distance(transform.position, exit.transform.position)<2f){
-            Destroy(gameObject);
+            Die();
             return;
         }
        
