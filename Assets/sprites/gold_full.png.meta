@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 76a064c3bc6dd6e47b42c4a312627a40
+guid: 8b410f6538a97cc4eaa7418aa6aa21ac
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2270898695139984224
-    second: player_hand_0
+      213: 5919542712977642161
+    second: gold_full_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,19 +97,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -126,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_hand_0
+      name: gold_full_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2
-        width: 98
-        height: 83
+        x: 10
+        y: 46
+        width: 236
+        height: 167
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0ac78432ba52c70e0800000000000000
-      internalID: -2270898695139984224
+      spriteID: 1b2d8cffbb0762250800000000000000
+      internalID: 5919542712977642161
       vertices: []
       indices: 
       edges: []
@@ -156,8 +143,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      player_hand_0: -2270898695139984224
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

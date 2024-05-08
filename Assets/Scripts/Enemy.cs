@@ -6,6 +6,9 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     
+    public Animator animator;
+    public Animator eye_animator;
+
     [SerializeField] Transform target;
 
     public GameObject[] targets;
@@ -59,6 +62,9 @@ public class Enemy : MonoBehaviour
         if(Vector3.Distance(transform.position, target.position)<2f){
             PerformNextAction();
         }
+
+        animator.setBool("isAttacking", attacking);
+        eye_animator.setBool("isAttacking", attacking);
     }
 
 

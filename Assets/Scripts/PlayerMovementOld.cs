@@ -22,6 +22,7 @@ public enum LookDirection
 
 public class PlayerMovementOld : MonoBehaviour
 {
+    public Animator animator;
     public float moveSpeed;
     public float sprintSpeed;
     public float handReach;
@@ -67,6 +68,7 @@ public class PlayerMovementOld : MonoBehaviour
         lookDirection = LookDirection.Up;
         equipment = GameObject.Find("Equipment").GetComponent<Equipment>();
 
+        animator = GetComponent<Animator>();
 
         // Will clean up
         previousSelectedItem = equipment.selectedItem;
@@ -172,9 +174,11 @@ public class PlayerMovementOld : MonoBehaviour
         if (horizontalInput == 0 && verticalInput == 0)
         {
             movementState = MovementState.Standing;
+            animator.SetFloat("player_speed", 0);
         } else
         {
             movementState = MovementState.Walking;
+            animator.SetFloat("player_speed", 1);
         }
 
 
