@@ -49,10 +49,6 @@ public class PlayerMovementOld : MonoBehaviour
     private Vector3 mouseWorldPosition;
     private Equipment equipment;
 
-    // Will clean up
-    private int previousSelectedItem;
-    private bool changeSelected = false;
-
    
 
     // Start is called before the first frame update
@@ -66,10 +62,6 @@ public class PlayerMovementOld : MonoBehaviour
         movementState = MovementState.Standing;
         lookDirection = LookDirection.Up;
         equipment = GameObject.Find("Equipment").GetComponent<Equipment>();
-
-
-        // Will clean up
-        previousSelectedItem = equipment.selectedItem;
     }
 
     // Update is called once per frame
@@ -109,23 +101,10 @@ public class PlayerMovementOld : MonoBehaviour
             cameraReach = cameraReachFactor;
         }
 
-        if (previousSelectedItem != equipment.selectedItem)
-        {
-            changeSelected = true;
-            previousSelectedItem = equipment.selectedItem;
-        }
-
-        if(equipment.selectedItem == 0 && changeSelected) {
-
+        if(equipment.selectedItem == 0) {
             Destroy(heldObject);
-            changeSelected = false;
-        } else if (equipment.selectedItem == 1 && changeSelected) 
+        } else if (equipment.selectedItem == 1) 
         {
-
-            if (heldObject != null) {
-                DropObject();
-            }
-
             if(heldObject == null) {
                 GameObject newAxe = Instantiate(axePrefab, hand.transform.position, transform.rotation);
                 heldObject = newAxe;
@@ -133,21 +112,12 @@ public class PlayerMovementOld : MonoBehaviour
                 newAxe.transform.SetParent(hand.transform);
                 newAxe.transform.localPosition = Vector3.zero;
             }
-            changeSelected = false;
 
-        } else if (equipment.selectedItem == 2 && changeSelected)
+        } else if (equipment.selectedItem == 2)
         {
-            if(heldObject.name == "Axe" || heldObject.name == "Axe(Clone)"){
-                Destroy(heldObject);
-            }
-
-            if (heldObject != null) {
-                DropObject();
-            }
-
-            if(heldObject == null)
+            if(heldObject.name == "Axe" || heldObject.name == "Axe(Clone)")
             {
-                
+                Destroy(heldObject);
                 GameObject newTorch = Instantiate(torchPrefab, hand.transform.position, transform.rotation);
                 heldObject = newTorch;
                 // Store initial local rotation relative to hand
@@ -158,7 +128,6 @@ public class PlayerMovementOld : MonoBehaviour
                 newTorch.transform.localPosition = Vector3.zero;
                 isHoldingObject = true;
             }
-            changeSelected = false;
         }
         
     }
