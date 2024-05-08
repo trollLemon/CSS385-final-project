@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 {
     
     public Animator animator;
+    public Animator eye_animator;
 
     [SerializeField] Transform target;
 
@@ -63,6 +64,7 @@ public class Enemy : MonoBehaviour
         }
 
         animator.setBool("isAttacking", attacking);
+        eye_animator.setBool("isAttacking", attacking);
     }
 
 
