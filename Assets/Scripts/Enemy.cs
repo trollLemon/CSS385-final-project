@@ -15,33 +15,47 @@ public class Enemy : MonoBehaviour
 
     private int health = 100;
     
+    public bool attacking = false;
     NavMeshAgent agent;
     // Start is called before the first frame update
     void Start()
     {
-     targets = new GameObject[2];
+     targets = new GameObject[3];
      
      targets[0] = GameObject.Find("Player");
      targets[1] = GameObject.Find("GoldPile");
+     targets[2] = GameObject.FindWithTag("wall");
      exit = GameObject.Find("Exit");
-     choice = Random.Range(0, 2);
+     choice = Random.Range(0, 3);
+     
+     
+     if(targets[choice]== null){
+        target = targets[0].transform;
+     }
      target=targets[choice].transform;
 
      Gold gold = targets[1].GetComponent<Gold>();
      if(gold.gold == 0) target=targets[0].transform;
+     
+     
+     
      agent=GetComponent<NavMeshAgent>();
      agent.updateRotation=false;
      agent.updateUpAxis=false;   
     
-    
+   
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(target==null){
+            target = targets[0].transform;
+            choice=0;
+        } 
         agent.SetDestination(target.position);
 
-        if(transform.position.x==target.position.x && target.position.y==target.position.y){
+        if(Vector3.Distance(transform.position, target.position)<2f){
             PerformNextAction();
         }
     }
@@ -61,7 +75,7 @@ public class Enemy : MonoBehaviour
 
     void PerformNextAction(){
 
-        
+   
 
         // if we are at an exit, we should destory the object, this will only happen if the enemy was going to the exit
         // so we do not need to worry about if this statement executes when the enemy attacks the player. 
@@ -73,11 +87,11 @@ public class Enemy : MonoBehaviour
        
     
         if(choice==0){
-
+            
         } 
         
         if( choice ==1){
-            Debug.Log("go to exit");
+         
             //pick up gold
             Gold gold = targets[choice].GetComponent<Gold>();
             
@@ -90,7 +104,39 @@ public class Enemy : MonoBehaviour
             goldHeld++;
             // set the target so the agent can run to exit (off screen)
             target=exit.transform;
+             agent.speed = 2f;
         }
 
+        if(choice == 2){
+                
+                //start breaking the wall
+                
+                if(!attacking){
+                BarrierHealth bh = targets[choice].GetComponent<BarrierHealth>();
+                attacking=true;
+                StartCoroutine(AttackWall(bh, targets[choice]));
+               
+                }
+
+        }
+
+    }
+
+    IEnumerator AttackWall(BarrierHealth bh, GameObject targ)
+    {
+       
+        while (true)
+        {
+            yield return new WaitForSeconds(2);
+            // the barrier has been destroyed, attack the player next
+            if(targ==null){
+                attacking=false;
+                target = targets[0].transform;
+                choice=0;
+                break;
+            }    
+            bh.Damage(10);
+            
+        }
     }
 }
