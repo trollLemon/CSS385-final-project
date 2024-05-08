@@ -17,8 +17,6 @@ public class AimController : MonoBehaviour
 
     public GameObject torch;
 
-    public GameObject wall;
-
     public GameObject range;
     void Start()
     {
@@ -33,12 +31,7 @@ public class AimController : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.J))
-        {
 
-            Vector3 place = range.transform.position;
-            Instantiate(wall,place,Quaternion.identity);
-        }
         if(Input.GetKeyDown(KeyCode.Space))
         {
 

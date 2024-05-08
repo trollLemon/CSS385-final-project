@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementCont : MonoBehaviour
 {
 
     private SpriteRenderer spr;
     public float maxSpeed = 10f;
     public float sensitivity = 1f;
-
-    public GameObject wall;
 
     // Start is called before the first frame update
     void Start()
@@ -30,12 +28,7 @@ public class PlayerMovement : MonoBehaviour
         //else{
         //    spr.flipX=false;
         //
-        if(Input.GetKeyDown(KeyCode.J))
-        {
 
-            Vector2 place = transform.position;
-            Instantiate(wall,place,Quaternion.identity);
-        }
 
         // Calculate movement direction
         Vector3 moveDirection = new Vector3(horizontalInput, verticalInput, 0f);
