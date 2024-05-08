@@ -153,7 +153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -130, y: 17}
+  m_AnchoredPosition: {x: -27.8, y: -0.6}
   m_SizeDelta: {x: 30, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &25026922
@@ -322,7 +322,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -27.6, y: 0}
+  m_AnchoredPosition: {x: 17.3, y: 0}
   m_SizeDelta: {x: 30, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &54127472
@@ -397,8 +397,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -6.5195923, y: -0.43319702}
-  m_SizeDelta: {x: 1.1789, y: 55.814}
+  m_AnchoredPosition: {x: 14.6507, y: -0.43319702}
+  m_SizeDelta: {x: 43.5194, y: 55.814}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &77910173
 MonoBehaviour:
@@ -770,7 +770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6baedd50c1b9272908f7da432ce3915b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  torch: {fileID: 0}
+  torch: {fileID: 4808838240312471003, guid: b7b1be9842eb6b600ac1128f5484e809, type: 3}
 --- !u!1 &257422069
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,10 +1759,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
+  - {fileID: 25026920}
   - {fileID: 2088715609}
   - {fileID: 1421228852}
   selectedItem: 0
-  numItems: 0
+  numItems: 3
   inventory: {fileID: 257422073}
 --- !u!1 &809998009
 GameObject:
@@ -2226,8 +2227,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.0548, y: 0}
-  m_SizeDelta: {x: 89.6945, y: 100}
+  m_AnchoredPosition: {x: 15.1155, y: 0}
+  m_SizeDelta: {x: 125.727, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1208623217
 MonoBehaviour:
@@ -5749,7 +5750,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15, y: 0}
+  m_AnchoredPosition: {x: 59.89999, y: 0}
   m_SizeDelta: {x: 30, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1421228854
@@ -6158,8 +6159,8 @@ MonoBehaviour:
   cameraMoveSpeed: 0
   movementState: 0
   lookDirection: 0
-  axePrefab: {fileID: 0}
-  torchPrefab: {fileID: 0}
+  axePrefab: {fileID: 1151047265690533616, guid: a8065ca431ecb7c46b3830bd3b3c021b, type: 3}
+  torchPrefab: {fileID: 4808838240312471003, guid: b7b1be9842eb6b600ac1128f5484e809, type: 3}
 --- !u!1001 &1660915698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16749,7 +16750,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -27.6, y: 0}
+  m_AnchoredPosition: {x: 17.29999, y: 0}
   m_SizeDelta: {x: 30, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2088715611
