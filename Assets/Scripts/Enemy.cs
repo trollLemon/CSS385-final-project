@@ -87,7 +87,14 @@ public class Enemy : MonoBehaviour
        
     
         if(choice==0){
-            
+                
+                if(!attacking){
+               
+                Health hp = targets[choice].GetComponent<Health>();
+                attacking=true;
+                StartCoroutine(AttackPlayer(hp));
+               
+                }
         } 
         
         if( choice ==1){
@@ -122,6 +129,22 @@ public class Enemy : MonoBehaviour
 
     }
 
+    IEnumerator AttackPlayer(Health hp)
+    {
+       
+        while (true)
+        {
+         
+            
+            if (Vector3.Distance(transform.position, target.transform.position)>2f) {
+                attacking=false;
+                break;
+            }             
+            hp.DamagePlayer(10);
+            yield return new WaitForSeconds(2);
+            
+        }
+    }
     IEnumerator AttackWall(BarrierHealth bh, GameObject targ)
     {
        
