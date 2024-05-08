@@ -29,11 +29,10 @@ public class Inventory : MonoBehaviour
 
     public int Craft(){
 
-
         if (coal>=1 && sticks >= 1){
             torches++;           
             coal--;
-            sticks--; 
+            sticks--;
 
             if(coal<0) coal=0;
             if(torches<0) torches=0;

@@ -25,18 +25,35 @@ public Inventory inventory;
     // Update is called once per frame
     void Update()
     {
-       transform.position=items[selectedItem].transform.position; 
+       transform.position=items[selectedItem].transform.position;
+
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            switchItems();
+        }
+
+        if(Input.GetKeyDown(KeyCode.R)){
+            craftTorch();
+        }
     }
 
     public void switchItems(){
 
-        if(inventory.torches==0) return;
-        selectedItem = (selectedItem+1) % numItems;
+        if(inventory.torches == 0)
+        {
+            selectedItem = (selectedItem+1) % (numItems - 1);
+            
+        } else
+        {
+            selectedItem = (selectedItem+1) % numItems;
+        }
+        
         transform.position=items[selectedItem].transform.position;
 
     }
 
     public void craftTorch(){
+        
            inventory.Craft(); 
 
     }
