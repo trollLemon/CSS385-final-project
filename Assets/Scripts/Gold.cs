@@ -15,7 +15,7 @@ public class Gold : MonoBehaviour
     void Start()
     {
         
-        text = goldText.GetComponent<TMP_Text>();
+        //text = goldText.GetComponent<TMP_Text>();
         text.text=""+gold;
     }
 

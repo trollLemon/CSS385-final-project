@@ -43,12 +43,13 @@ public class Enemy : MonoBehaviour
      agent.updateRotation=false;
      agent.updateUpAxis=false;   
     
-   
+     
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if(target==null){
             target = targets[0].transform;
             choice=0;

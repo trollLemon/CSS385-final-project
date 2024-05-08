@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
         // Calculate movement direction
         Vector3 moveDirection = new Vector3(horizontalInput, verticalInput, 0f);
 
-        Debug.Log(horizontalInput);
+       
 
         if(horizontalInput>0){
             spr.flipX=true;
