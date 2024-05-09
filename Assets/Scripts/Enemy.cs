@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     
     public Animator animator;
-    public Animator eye_animator;
+   // public Animator eye_animator;
 
     [SerializeField] Transform target;
 
@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
      targets[2] = GameObject.FindWithTag("wall");
      exit = GameObject.Find("Exit");
      choice = Random.Range(0, 3);
-     
+     animator = GetComponent<Animator>();
      
      if(targets[choice]== null){
         target = targets[0].transform;
@@ -63,8 +63,8 @@ public class Enemy : MonoBehaviour
             PerformNextAction();
         }
 
-        animator.setBool("isAttacking", attacking);
-        eye_animator.setBool("isAttacking", attacking);
+        animator.SetBool("isAttacking", attacking);
+        //eye_animator.SetBool("isAttacking", attacking);
     }
 
 

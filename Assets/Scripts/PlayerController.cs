@@ -95,10 +95,10 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        animator.setFloat("player_speed", Mathf.Abs(speed));
+        float speed = moveDirection.magnitude * maxSpeed * sensitivity;
+        animator.SetFloat("player_speed", Mathf.Abs(speed));
 
         // Calculate speed based on joystick tilt
-        float speed = moveDirection.magnitude * maxSpeed * sensitivity;
 
         // Normalize the moveDirection if it's not zero to keep the same direction but adjust speed
         if (moveDirection != Vector3.zero)

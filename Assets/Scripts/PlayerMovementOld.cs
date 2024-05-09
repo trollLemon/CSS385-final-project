@@ -174,11 +174,11 @@ public class PlayerMovementOld : MonoBehaviour
         if (horizontalInput == 0 && verticalInput == 0)
         {
             movementState = MovementState.Standing;
-            animator.SetFloat("player_speed", 0);
+            animator.SetFloat("speed", 0);
         } else
         {
             movementState = MovementState.Walking;
-            animator.SetFloat("player_speed", 1);
+            animator.SetFloat("speed", 1);
         }
 
 
