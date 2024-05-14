@@ -44,6 +44,8 @@ public class PlayerMovement : MonoBehaviour
 
         // Move the cube
         transform.Translate(moveDirection * speed * Time.deltaTime);
-        
+        Vector3 currentPosition = transform.position;
+        currentPosition.z = currentPosition.y;
+        transform.position = currentPosition;
     }
 }
