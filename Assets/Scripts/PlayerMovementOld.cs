@@ -205,6 +205,9 @@ public class PlayerMovementOld : MonoBehaviour
 
         // Move the Player
         transform.Translate(moveDirection * speed * Time.deltaTime);
+        Vector3 currPos = transform.position;
+        currPos.z = currPos.y;
+        transform.position= currPos;
         
     }
 
