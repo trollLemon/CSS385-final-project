@@ -177,6 +177,8 @@ public class PlayerMovementOld : MonoBehaviour
                     BlockingLogic();
                     animator.SetBool("isAttacking", false);
                 }
+            } else {
+                animator.SetBool("isAttacking", false);
             }
 
             if(heldObject.name == "Torch" || heldObject.name == "Torch(Clone)") {
