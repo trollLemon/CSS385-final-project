@@ -6,7 +6,7 @@ using UnityEngine;
 public class Gold : MonoBehaviour
 {
 
-
+    public Animator animator;
     public GameObject goldText;
     public TMP_Text text;
     public int gold;
@@ -17,6 +17,8 @@ public class Gold : MonoBehaviour
         
         //text = goldText.GetComponent<TMP_Text>();
         text.text=""+gold;
+
+        animator = GetComponent<Animator>();
     }
 
 
@@ -32,5 +34,7 @@ public class Gold : MonoBehaviour
     void Update()
     {
         text.text=""+gold;
+
+        animator.SetInteger("gold_amt", gold);
     }
 }

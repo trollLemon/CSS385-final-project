@@ -176,6 +176,8 @@ public class PlayerMovementOld : MonoBehaviour
                 if (!isAttacking)
                 {
                     BlockingLogic();
+
+                    animator.SetBool("isAttacking", false);
                 }
             }
 
@@ -318,10 +320,7 @@ public class PlayerMovementOld : MonoBehaviour
 
     private void AttackingAnimation()
     {
-        if(isAttacking)
-        {
-
-        }
+        animator.SetBool("isAttacking", true);
     }
 
     private void Movement()
