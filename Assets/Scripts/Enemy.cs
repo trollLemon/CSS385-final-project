@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour
         } 
         agent.SetDestination(target.position);
 
-        if(Vector3.Distance(transform.position, target.position)<2f){
+        if(Vector2.Distance(transform.position, target.position)<2f){
             PerformNextAction();
         }
 
@@ -146,15 +146,18 @@ public class Enemy : MonoBehaviour
         {
          
             
-            if (Vector3.Distance(transform.position, target.transform.position)>2f) {
+            if (Vector2.Distance(transform.position, target.transform.position)>4f) {
                 attacking=false;
                 break;
-            }             
+            }    
+            Debug.Log( Vector3.Distance(transform.position, target.transform.position)) ;     
+            Debug.Log("Damaging"); 
             hp.DamagePlayer(10);
             yield return new WaitForSeconds(2);
             
         }
     }
+
     IEnumerator AttackWall(BarrierHealth bh, GameObject targ)
     {
        

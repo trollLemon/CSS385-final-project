@@ -177,7 +177,7 @@ MonoBehaviour:
   targets: []
   exit: {fileID: 0}
   goldHeld: 0
-  health: 50
+  health: 30
   attacking: 0
 --- !u!95 &5860442745039221969
 Animator:
