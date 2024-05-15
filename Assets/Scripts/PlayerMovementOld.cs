@@ -60,7 +60,7 @@ public class PlayerMovementOld : MonoBehaviour
     private bool expandAxeBlock = false;
     private float prevHandReach;
 
-
+    public InventoryManager inv;
 
 
 
@@ -84,7 +84,6 @@ public class PlayerMovementOld : MonoBehaviour
     private SpriteRenderer axeModel;
     private Color originalAxeColor;
     private Vector3 mouseWorldPosition;
-    private Equipment equipment;
 
 
 
@@ -114,8 +113,8 @@ public class PlayerMovementOld : MonoBehaviour
         mouseWorldPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         movementState = MovementState.Standing;
         lookDirection = LookDirection.Up;
-        equipment = GameObject.Find("Equipment").GetComponent<Equipment>();
-
+        GameObject equipment = GameObject.Find("Equipment");
+        inv= equipment.GetComponent<InventoryManager>();
         animator = GetComponent<Animator>();
 
 
@@ -130,7 +129,7 @@ public class PlayerMovementOld : MonoBehaviour
 
 
         // Will clean up
-        previousSelectedItem = equipment.selectedItem;
+        previousSelectedItem = inv.selectedItem;
     }
 
     // Update is called once per frame
@@ -176,7 +175,6 @@ public class PlayerMovementOld : MonoBehaviour
                 if (!isAttacking)
                 {
                     BlockingLogic();
-
                     animator.SetBool("isAttacking", false);
                 }
             }
@@ -213,19 +211,19 @@ public class PlayerMovementOld : MonoBehaviour
 
 
 
-        if (previousSelectedItem != equipment.selectedItem)
+        if (previousSelectedItem != inv.selectedItem)
         {
             changeSelected = true;
-            previousSelectedItem = equipment.selectedItem;
+            previousSelectedItem = inv.selectedItem;
         }
 
-        if(equipment.selectedItem == 0 && changeSelected) {
+        if(inv.selectedItem == 0 && changeSelected) {
 
             Destroy(heldObject);
             changeSelected = false;
 
         // change to axe.
-        } else if (equipment.selectedItem == 1 && changeSelected) 
+        } else if (inv.selectedItem == 1 && changeSelected) 
         {
 
             if (heldObject != null) {
@@ -275,7 +273,7 @@ public class PlayerMovementOld : MonoBehaviour
             }
             changeSelected = false;
 
-        } else if (equipment.selectedItem == 2 && changeSelected)
+        } else if (inv.selectedItem == 2 && changeSelected)
         {
             if(heldObject.name == "Axe" || heldObject.name == "Axe(Clone)"){
                 Destroy(heldObject);
@@ -320,7 +318,10 @@ public class PlayerMovementOld : MonoBehaviour
 
     private void AttackingAnimation()
     {
+        if(isAttacking)
+        {
         animator.SetBool("isAttacking", true);
+        }
     }
 
     private void Movement()
@@ -518,14 +519,19 @@ public class PlayerMovementOld : MonoBehaviour
     {
         if (heldObject != null)
         {
+            int heldItemm =0;
             if (heldObject.name == "Torch" || heldObject.name == "Torch(Clone)")
             {
-                GameObject.Find("Inventory").GetComponent<Inventory>().torches--;
+                
+                inv.UseTorch();
+                heldItemm=inv.torches;
             }
             heldObject.transform.SetParent(null);
             heldObject = null;
             isHoldingObject = false;
         }
+
+        
     }
 
     private void BlockingLogic()

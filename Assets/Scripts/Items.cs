@@ -6,11 +6,11 @@ public class Items : MonoBehaviour
 {
 
    
-    public Equipment items;
+    public InventoryManager items;
     // Start is called before the first frame update
     void Start()
     {
-        
+     items = GameObject.Find("Equipment").GetComponent<InventoryManager>();   
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class Items : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.R)){
             Debug.Log("Craft Torch");
-            items.craftTorch();
+            items.CraftTorch();
         }
     }
 }

@@ -7,6 +7,7 @@ TagManager:
   - gold_count
   - wall
   - spawner
+  - ForestCreature
   layers:
   - Default
   - TransparentFX

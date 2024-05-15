@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     private int choice;
     public int goldHeld=0;
 
-    private int health = 100;
+    public int health = 50;
     
     public bool attacking = false;
     NavMeshAgent agent;

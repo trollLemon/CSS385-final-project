@@ -6020,6 +6020,7 @@ GameObject:
   - component: {fileID: 1494591089}
   - component: {fileID: 1494591088}
   - component: {fileID: 1494591090}
+  - component: {fileID: 1494591091}
   m_Layer: 0
   m_Name: GoldPile
   m_TagString: Untagged
@@ -6110,9 +6111,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43a4daa78c07dbbb0acfb24d3872cb61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   goldText: {fileID: 264600189}
   text: {fileID: 655524312}
   gold: 100
+--- !u!95 &1494591091
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494591087}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fb4153b9e09893f41af74a41fb2b8f77, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1503127663
 GameObject:
   m_ObjectHideFlags: 0
@@ -6236,6 +6260,7 @@ GameObject:
   - component: {fileID: 1659989023}
   - component: {fileID: 1659989024}
   - component: {fileID: 1659989025}
+  - component: {fileID: 1659989026}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6371,8 +6396,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 877f9be4955503b2ea5360fa3eba2cb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 10
-  sensitivity: 1
 --- !u!114 &1659989023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6398,6 +6421,19 @@ MonoBehaviour:
   lookDirection: 0
   axePrefab: {fileID: 1151047265690533616, guid: a8065ca431ecb7c46b3830bd3b3c021b, type: 3}
   torchPrefab: {fileID: 4808838240312471003, guid: b7b1be9842eb6b600ac1128f5484e809, type: 3}
+  playerObject: {fileID: 0}
+  axeObject: {fileID: 0}
+  swingSpeed: 25
+  arcWidth: 45
+  isAttacking: 0
+  isBlocking: 0
+  comboSwing1: 0
+  comboSwing2: 0
+  comboSwing3: 0
+  superSwingPrimed: 0
+  comboSuperSwing: 0
+  axeBlockObject: {fileID: 6836196666721997707, guid: 4ec634d7bfc78074b806b31d497519e8, type: 3}
+  inv: {fileID: 0}
 --- !u!95 &1659989024
 Animator:
   serializedVersion: 7
@@ -6434,9 +6470,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currHealth: 100
   maxHealth: 99
-  healthbar: {fileID: 0}
   shakeMag: 0.1
   shakeDurr: 0.1
+--- !u!114 &1659989026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659989013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6a92276b99a8c927b9b7fa9c410cda5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items: {fileID: 0}
 --- !u!1001 &1717875861
 PrefabInstance:
   m_ObjectHideFlags: 0

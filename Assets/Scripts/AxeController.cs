@@ -10,7 +10,7 @@ public class AxeController : MonoBehaviour
 
     public bool isAttacking = false;
 
-    public float damage = 15.0f;
+    public int damage = 15;
 
     // Start is called before the first frame update
     void Start()
@@ -23,5 +23,15 @@ public class AxeController : MonoBehaviour
     void Update()
     {
         isAttacking = playerMovementOld.isAttacking;
+    }
+
+    void OnTriggerEnter2D(Collider2D other){
+        if (other.CompareTag("ForestCreature")){
+
+                Enemy ai = other.GetComponent<Enemy>();
+                ai.Damage(damage);
+
+        }
+
     }
 }

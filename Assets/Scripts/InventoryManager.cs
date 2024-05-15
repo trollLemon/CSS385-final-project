@@ -124,8 +124,9 @@ public class InventoryManager : MonoBehaviour
 
 
     public void switchItems(){
-
-            selectedItem = (selectedItem++) % numItems;
+            selectedItem++;
+            Debug.Log(selectedItem);
+            selectedItem = (selectedItem) % numItems;
 
     }
 

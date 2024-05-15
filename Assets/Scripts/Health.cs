@@ -7,8 +7,6 @@ public class Health : MonoBehaviour
 
 public int currHealth = -1;
 public int maxHealth = 99;
-public HealthBar healthbar;
-
 public float shakeMag = 0.1f;
 public float shakeDurr = 0.1f;
 private Vector3 initialPosition;
@@ -16,7 +14,6 @@ private Vector3 initialPosition;
     void Start()
     {
         currHealth=maxHealth;       
-        initialPosition=healthbar.transform.localPosition;
     }
 
     // Update is called once per frame
@@ -34,11 +31,11 @@ private Vector3 initialPosition;
 
     IEnumerator DecreaseHpOverTime(int dmg)
     {
+        Debug.Log("ouch");
         while(dmg>0)
         {
         currHealth--;
         dmg--;
-        healthbar.SetHealth(currHealth);
         
         yield return new WaitForSeconds(0.02f);
         }
