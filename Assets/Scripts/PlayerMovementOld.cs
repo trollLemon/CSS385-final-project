@@ -179,6 +179,14 @@ public class PlayerMovementOld : MonoBehaviour
                 }
             }
 
+            if(heldObject.name == "Torch" || heldObject.name == "Torch(Clone)") {
+                if (inv.coal != 0 && inv.sticks != 0 && Input.GetKey(KeyCode.R)) {
+                    animator.SetBool("IsCrafting", true);
+                } else {
+                    animator.SetBool("IsCrafting", false);
+                }
+            }
+
         }
 
         // Grab or drop objects when E is pressed
