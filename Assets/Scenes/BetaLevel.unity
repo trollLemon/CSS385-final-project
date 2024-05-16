@@ -1582,6 +1582,7 @@ GameObject:
   - component: {fileID: 886206900}
   - component: {fileID: 886206899}
   - component: {fileID: 886206898}
+  - component: {fileID: 886206901}
   m_Layer: 0
   m_Name: tent_0
   m_TagString: Untagged
@@ -1674,6 +1675,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &886206901
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886206897}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7acd8a2c784b0cf49b482100cead44d4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &904800185
 GameObject:
   m_ObjectHideFlags: 0
@@ -6424,7 +6447,7 @@ MonoBehaviour:
   playerObject: {fileID: 0}
   axeObject: {fileID: 0}
   swingSpeed: 25
-  arcWidth: 45
+  arcWidth: 90
   isAttacking: 0
   isBlocking: 0
   comboSwing1: 0
@@ -25933,8 +25956,8 @@ MonoBehaviour:
   Axe: {fileID: 0}
   Selected: {fileID: 0}
   torches: 0
-  coal: 0
-  sticks: 0
+  coal: 10
+  sticks: 10
   logs: 0
   barriers: 0
   MAXITEMS: 10
