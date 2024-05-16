@@ -8,6 +8,8 @@ TagManager:
   - wall
   - spawner
   - ForestCreature
+  - Damageable
+  - Damagable
   layers:
   - Default
   - TransparentFX

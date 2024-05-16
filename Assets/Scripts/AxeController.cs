@@ -28,6 +28,8 @@ public class AxeController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other){
 
+        Debug.Log("Hit Something");
+
         if(!isAttacking) return;
         
         if (other.CompareTag("ForestCreature")){
@@ -35,6 +37,11 @@ public class AxeController : MonoBehaviour
                 Enemy ai = other.GetComponent<Enemy>();
                 ai.Damage(damage);
 
+        }
+        if(other.CompareTag("Damagable"))
+        {
+            HP obj = other.GetComponent<HP>();
+            obj.Damage((float)damage);
         }
 
     }
