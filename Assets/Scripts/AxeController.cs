@@ -12,6 +12,7 @@ public class AxeController : MonoBehaviour
 
     public int damage = 15;
 
+    private Color originalColor;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,9 @@ public class AxeController : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other){
+
+        if(!isAttacking) return;
+        
         if (other.CompareTag("ForestCreature")){
 
                 Enemy ai = other.GetComponent<Enemy>();

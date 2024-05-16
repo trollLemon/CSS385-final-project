@@ -20,9 +20,23 @@ public class Enemy : MonoBehaviour
     
     public bool attacking = false;
     NavMeshAgent agent;
+
+    private SpriteRenderer spriteRenderer;
+    // Original color of the sprite
+    private Color originalColor;
+
     // Start is called before the first frame update
     void Start()
     {
+
+    spriteRenderer = GetComponent<SpriteRenderer>();
+        // Store the original color of the sprite
+    if (spriteRenderer != null)
+    {
+        originalColor = spriteRenderer.color;
+    }
+
+    
      targets = new GameObject[3];
      
      targets[0] = GameObject.Find("Player");
@@ -79,8 +93,21 @@ public class Enemy : MonoBehaviour
 
     public void Damage(int dmg){
         health-=dmg;
-
+        StartCoroutine(ChangeColorTemporarily());
         if(health<=0) Die();
+    }
+
+    private IEnumerator ChangeColorTemporarily()
+    {
+        if (spriteRenderer != null)
+        {
+            // Change the color to red
+            spriteRenderer.color = Color.red;
+            // Wait for 1 second
+            yield return new WaitForSeconds(1f);
+            // Change the color back to the original color
+            spriteRenderer.color = originalColor;
+        }
     }
 
     void PerformNextAction(){

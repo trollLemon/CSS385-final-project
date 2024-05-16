@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 411237856152884792}
   - component: {fileID: 7771760319041174046}
   - component: {fileID: 2273516022822745240}
+  - component: {fileID: -4479480069410901850}
   m_Layer: 0
   m_Name: barrier
   m_TagString: wall
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.4850707, y: -3.1522, z: 0}
-  m_LocalScale: {x: 1, y: 5.450187, z: 1}
+  m_LocalScale: {x: 1, y: 5.450187, z: 6.8283}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -126,7 +127,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8898557783856672197}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -145,3 +146,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-4479480069410901850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8898557783856672197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9f65d9e9af8626daacfde4f52d88dd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

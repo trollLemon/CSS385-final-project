@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
         {
            
             
-            float t = elapsedTime / NightDuration;
+            float t = elapsedTime / NightDuration * 0.1f;
             GlobalLight.intensity = Mathf.Lerp(startIntensity, endIntensity, t);
           
             elapsedTime += Time.deltaTime;
