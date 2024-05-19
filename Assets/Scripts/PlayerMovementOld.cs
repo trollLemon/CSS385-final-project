@@ -93,7 +93,8 @@ public class PlayerMovementOld : MonoBehaviour
     int nextIndex = 1;
 
 
-
+    public GameObject playArea;
+    private Bounds playAreaBounds;
 
 
     // Will clean up
@@ -117,6 +118,8 @@ public class PlayerMovementOld : MonoBehaviour
         inv= equipment.GetComponent<InventoryManager>();
         animator = GetComponent<Animator>();
 
+        playArea = GameObject.Find("PlayArea");
+        playAreaBounds = playArea.GetComponent<Collider2D>().bounds;
 
         playerObject = GameObject.Find("Player").transform;
         axeObject = GameObject.Find("Hand").transform;
@@ -372,11 +375,16 @@ public class PlayerMovementOld : MonoBehaviour
             moveDirection.Normalize();
         }
 
-        // Move the Player
-        transform.Translate(moveDirection * speed * Time.deltaTime);
-        Vector3 currPos = transform.position;
-        currPos.z = currPos.y;
-        transform.position= currPos;
+        Vector3 newPosition = transform.position + moveDirection * speed * Time.deltaTime;
+        newPosition.z = newPosition.y;
+        Vector3 playAreaMin = playAreaBounds.min;
+        Vector3 playAreaMax = playAreaBounds.max;
+        if (newPosition.x >= playAreaMin.x && newPosition.x <= playAreaMax.x &&
+            newPosition.y >= playAreaMin.y && newPosition.y <= playAreaMax.y)
+        {
+            // Move the Player
+            transform.position = newPosition;
+        }
         
     }
 
