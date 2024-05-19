@@ -549,6 +549,15 @@ public class PlayerMovementOld : MonoBehaviour
         if (heldObject != null && isHoldingObject)
         {
             heldObject.transform.rotation = initialRotation;
+        } else if (heldObject.name == "Barrier"|| heldObject.name == "Barrier(Clone)" || heldObject.tag == "Barrier")
+        {
+            if (barrierDirection == BarrierDirection.Horizontal)
+            {
+                heldObject.transform.rotation = Quaternion.Euler(0f, 0f, -90f);
+            } else
+            {
+                heldObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            }
         }
     }
 
