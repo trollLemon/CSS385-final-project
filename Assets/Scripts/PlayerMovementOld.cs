@@ -549,7 +549,7 @@ public class PlayerMovementOld : MonoBehaviour
         if (heldObject != null && isHoldingObject)
         {
             heldObject.transform.rotation = initialRotation;
-        } else if (heldObject.name == "Barrier"|| heldObject.name == "Barrier(Clone)" || heldObject.tag == "Barrier")
+        } else if (heldObject != null && (heldObject.name == "Barrier"|| heldObject.name == "Barrier(Clone)" || heldObject.tag == "Barrier"))
         {
             if (barrierDirection == BarrierDirection.Horizontal)
             {
