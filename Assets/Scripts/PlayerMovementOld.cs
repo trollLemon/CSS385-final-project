@@ -311,6 +311,33 @@ public class PlayerMovementOld : MonoBehaviour
             }
             changeSelected = false;
         }
+        else if (inv.selectedItem == 3 && changeSelected)
+        {
+            if(heldObject.name == "Axe" || heldObject.name == "Axe(Clone)"){
+                Destroy(heldObject);
+            }
+
+            if (heldObject != null) {
+                DropObject();
+            }
+
+            if(heldObject == null)
+            {
+                
+                // GameObject newTorch = Instantiate(torchPrefab, hand.transform.position, transform.rotation);
+                // heldObject = newTorch;
+                // // Store initial local rotation relative to hand
+                // initialRotation = heldObject.transform.rotation;
+              
+                // // Attach object to hand
+                // newTorch.transform.SetParent(hand.transform);
+                // newTorch.transform.localPosition = Vector3.zero;
+                isHoldingObject = true;
+            }
+            changeSelected = false;
+        }
+
+
         
     }
 
