@@ -21,6 +21,12 @@ public enum LookDirection
     Down
 }
 
+public enum BarrierDirection
+{
+    Horizontal,
+    Vertical
+}
+
 public class PlayerMovementOld : MonoBehaviour
 {
     public Animator animator;
@@ -35,6 +41,8 @@ public class PlayerMovementOld : MonoBehaviour
     public float cameraMoveSpeed;
     public MovementState movementState;
     public LookDirection lookDirection;
+
+    public BarrierDirection barrierDirection;
     public GameObject axePrefab;
     public GameObject torchPrefab;
 
@@ -311,33 +319,6 @@ public class PlayerMovementOld : MonoBehaviour
             }
             changeSelected = false;
         }
-        else if (inv.selectedItem == 3 && changeSelected)
-        {
-            if(heldObject.name == "Axe" || heldObject.name == "Axe(Clone)"){
-                Destroy(heldObject);
-            }
-
-            if (heldObject != null) {
-                DropObject();
-            }
-
-            if(heldObject == null)
-            {
-                
-                // GameObject newTorch = Instantiate(torchPrefab, hand.transform.position, transform.rotation);
-                // heldObject = newTorch;
-                // // Store initial local rotation relative to hand
-                // initialRotation = heldObject.transform.rotation;
-              
-                // // Attach object to hand
-                // newTorch.transform.SetParent(hand.transform);
-                // newTorch.transform.localPosition = Vector3.zero;
-                isHoldingObject = true;
-            }
-            changeSelected = false;
-        }
-
-
         
     }
 
@@ -432,6 +413,17 @@ public class PlayerMovementOld : MonoBehaviour
         } else
         {
             lookDirection = LookDirection.Left;
+        }
+
+        if (Math.Abs(targetAngle) >= 135)
+        {
+            barrierDirection = BarrierDirection.Vertical;
+        } else if (Math.Abs(targetAngle) < 135 && Math.Abs(targetAngle) >= 45)
+        {
+            barrierDirection = BarrierDirection.Horizontal;
+        } else
+        {
+            barrierDirection = BarrierDirection.Vertical;
         }
 
         Quaternion targetRotation;
