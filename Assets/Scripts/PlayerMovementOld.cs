@@ -194,9 +194,9 @@ public class PlayerMovementOld : MonoBehaviour
 
             if(heldObject.name == "Torch" || heldObject.name == "Torch(Clone)") {
                 if (inv.coal != 0 && inv.sticks != 0 && Input.GetKey(KeyCode.R)) {
-                    animator.SetBool("IsCrafting", true);
+                    //animator.SetBool("IsCrafting", true);
                 } else {
-                    animator.SetBool("IsCrafting", false);
+                   // animator.SetBool("IsCrafting", false);
                 }
             }
 
