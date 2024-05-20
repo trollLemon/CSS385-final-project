@@ -423,7 +423,7 @@ public class PlayerMovementOld : MonoBehaviour
         }
 
         Vector3 newPosition = transform.position + moveDirection * speed * Time.deltaTime;
-        newPosition.z = newPosition.y;
+        newPosition.z = newPosition.y*0.01f;
         Vector3 playAreaMin = playAreaBounds.min;
         Vector3 playAreaMax = playAreaBounds.max;
         if (newPosition.x >= playAreaMin.x && newPosition.x <= playAreaMax.x &&

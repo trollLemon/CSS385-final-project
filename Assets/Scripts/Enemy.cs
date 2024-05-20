@@ -80,7 +80,7 @@ public class Enemy : MonoBehaviour
         animator.SetBool("isAttacking", attacking);
         //eye_animator.SetBool("isAttacking", attacking);
         Vector3 currentPosition = transform.position;
-        currentPosition.z = currentPosition.y;
+        currentPosition.z = currentPosition.y*0.01f;
         transform.position=currentPosition;
     }
 
