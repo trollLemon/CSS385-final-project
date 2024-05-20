@@ -73,7 +73,7 @@ public class Enemy : MonoBehaviour
         } 
         agent.SetDestination(target.position);
 
-        if(Vector2.Distance(transform.position, target.position)<2f){
+        if(Vector2.Distance(transform.position, target.position)<4f){
             PerformNextAction();
         }
 

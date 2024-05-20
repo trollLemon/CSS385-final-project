@@ -46,6 +46,7 @@ public class PlayerMovementOld : MonoBehaviour
     public GameObject axePrefab;
     public GameObject torchPrefab;
 
+    public GameObject barrierPrefab;
 
     public Transform playerObject;
     public Transform axeObject;
@@ -213,6 +214,7 @@ public class PlayerMovementOld : MonoBehaviour
         {
             if (heldObject.name != "Axe" && heldObject.name != "Axe(Clone)")
             {
+
                 DropObject();
             }
         }
@@ -296,9 +298,9 @@ public class PlayerMovementOld : MonoBehaviour
 
         } else if (inv.selectedItem == 2 && changeSelected)
         {
-            if(heldObject.name == "Axe" || heldObject.name == "Axe(Clone)"){
+            //if(heldObject.name == "Axe" || heldObject.name == "Axe(Clone)"){
                 Destroy(heldObject);
-            }
+            //}
 
             if (heldObject != null) {
                 DropObject();
@@ -306,7 +308,7 @@ public class PlayerMovementOld : MonoBehaviour
 
             if(heldObject == null)
             {
-                
+                 if(inv.torches<=0) return;
                 GameObject newTorch = Instantiate(torchPrefab, hand.transform.position, transform.rotation);
                 heldObject = newTorch;
                 // Store initial local rotation relative to hand
@@ -318,8 +320,45 @@ public class PlayerMovementOld : MonoBehaviour
                 isHoldingObject = true;
             }
             changeSelected = false;
+        }else if (inv.selectedItem == 3 && changeSelected)
+        {
+           // if(heldObject.name == "Axe" || heldObject.name == "Axe(Clone)"){
+             //   Destroy(heldObject);
+           // }
+
+            if (heldObject != null) {
+                
+                    Destroy(heldObject);
+                
+            }
+            //heldObject=null; // I have no idea why we need to do this, but this is the only way to get the code in teh 
+                             // below if statement to run when the user selects it. 
+          //  if(heldObject == null)
+            //{
+                
+                if(inv.barriers<=0) return;
+                float rotationDegrees = barrierDirection == BarrierDirection.Horizontal ? 90f: 0f;
+                Quaternion rotation = transform.rotation * Quaternion.Euler(0, 0, rotationDegrees);
+                GameObject newBarrier = Instantiate(barrierPrefab, hand.transform.position, rotation);
+                heldObject = newBarrier;
+                // Store initial local rotation relative to hand
+                initialRotation = heldObject.transform.rotation;
+              
+                // Attach object to hand
+                newBarrier.transform.SetParent(hand.transform);
+                newBarrier.transform.localPosition = Vector3.zero;
+                isHoldingObject = true;
+            //}
+            changeSelected = false;
         }
-        
+
+
+        //handle rotating the barrier 
+        if(inv.selectedItem==3 && heldObject!=null){
+                float rotationDegrees = barrierDirection == BarrierDirection.Horizontal ? 90f: 0f;
+                Quaternion rotation = transform.rotation * Quaternion.Euler(0, 0, rotationDegrees);
+                heldObject.transform.rotation=rotation;
+        } 
     }
 
     private void MovementAnimation()
@@ -566,11 +605,21 @@ public class PlayerMovementOld : MonoBehaviour
         if (heldObject != null)
         {
             int heldItemm =0;
-            if (heldObject.name == "Torch" || heldObject.name == "Torch(Clone)")
+            if (inv.selectedItem ==2)
             {
                 
+                if(inv.torches>0){ 
                 inv.UseTorch();
                 heldItemm=inv.torches;
+                }
+            }
+            if (inv.selectedItem ==3)
+            {
+                
+                if(inv.barriers>0){
+                inv.UseBarrier();
+                heldItemm=inv.barriers;
+                }
             }
             heldObject.transform.SetParent(null);
             heldObject = null;
