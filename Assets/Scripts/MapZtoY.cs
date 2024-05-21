@@ -15,7 +15,7 @@ public class MapZtoY : MonoBehaviour
     {
         Vector3 pos = transform.position;
 
-        pos.z=pos.y;
+        pos.z=pos.y*0.01f;
 
         transform.position=pos;
         

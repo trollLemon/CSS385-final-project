@@ -73,14 +73,14 @@ public class Enemy : MonoBehaviour
         } 
         agent.SetDestination(target.position);
 
-        if(Vector2.Distance(transform.position, target.position)<2f){
+        if(Vector2.Distance(transform.position, target.position)<4f){
             PerformNextAction();
         }
 
         animator.SetBool("isAttacking", attacking);
         //eye_animator.SetBool("isAttacking", attacking);
         Vector3 currentPosition = transform.position;
-        currentPosition.z = currentPosition.y;
+        currentPosition.z = currentPosition.y*0.01f;
         transform.position=currentPosition;
     }
 
