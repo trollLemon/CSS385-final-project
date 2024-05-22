@@ -39,6 +39,15 @@ public class ItemBehavior : MonoBehaviour
 
                     }
                 }
+
+                if(itemId == 4) {
+                    if (inv.PickUpCoal() == 0)
+                    {
+                        pickedUp=true;
+
+                    }
+
+                }
         
         }
 
