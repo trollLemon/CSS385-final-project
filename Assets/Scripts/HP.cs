@@ -34,7 +34,7 @@ public class HP : MonoBehaviour
 
         for(int i = 0; i<numItemTypesToSpawn; ++i)
         {
-            int numItemSpawns = Random.Range(0, maxItemSpawns+1);
+            int numItemSpawns = Random.Range(minItems, maxItemSpawns+1);
             for(int j = 0; j<numItemSpawns; ++j)
             {
                 GameObject item = items[i];
