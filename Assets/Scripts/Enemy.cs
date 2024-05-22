@@ -15,8 +15,6 @@ public class Enemy : MonoBehaviour
     public GameObject exit;
     private int choice;
     public int goldHeld=0;
-
-    public int health = 50;
     
     public bool attacking = false;
     NavMeshAgent agent;
@@ -84,32 +82,6 @@ public class Enemy : MonoBehaviour
         transform.position=currentPosition;
     }
 
-
-    private void Die(){
-        
-        //TODO:Drop stuff: gold, crafting mats
-        Destroy(gameObject);
-    }
-
-    public void Damage(int dmg){
-        health-=dmg;
-        StartCoroutine(ChangeColorTemporarily());
-        if(health<=0) Die();
-    }
-
-    private IEnumerator ChangeColorTemporarily()
-    {
-        if (spriteRenderer != null)
-        {
-            // Change the color to red
-            spriteRenderer.color = Color.red;
-            // Wait for 1 second
-            yield return new WaitForSeconds(1f);
-            // Change the color back to the original color
-            spriteRenderer.color = originalColor;
-        }
-    }
-
     void PerformNextAction(){
 
    
@@ -118,7 +90,7 @@ public class Enemy : MonoBehaviour
         // so we do not need to worry about if this statement executes when the enemy attacks the player. 
 
         if(Vector3.Distance(transform.position, exit.transform.position)<2f){
-            Die();
+            Destroy(gameObject);
             return;
         }
        
