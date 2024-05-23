@@ -7,6 +7,7 @@ public class Torch : MonoBehaviour
 {
 
     public Light2D gameLight;
+    public GameObject fire;
     public float intensity;
     public float outer_rad;
     public float decay = 0.0001f;
@@ -26,6 +27,8 @@ public class Torch : MonoBehaviour
     void Start()
     {
     gameLight= GetComponent<Light2D>(); 
+    fire = transform.parent.Find("torch_fire_sheet_0").gameObject;
+    fire.GetComponent<SpriteRenderer>().sortingOrder += 1;
     intensity=gameLight.intensity;
 
 
@@ -40,6 +43,7 @@ public class Torch : MonoBehaviour
         intensity-=decay;
         intensity = Mathf.Max(0,intensity);
         gameLight.intensity=intensity;
+        fire.transform.localScale = new Vector3(intensity, intensity, intensity);
         if(intensity ==0){
             Destroy(gameObject.transform.parent.gameObject);
             Destroy(gameObject);
