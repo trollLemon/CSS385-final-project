@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5860442745039221969}
   - component: {fileID: 6451848171067512991}
   - component: {fileID: 2355114901577459843}
+  - component: {fileID: -954013826594129959}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: ForestCreature
@@ -179,6 +180,7 @@ MonoBehaviour:
   exit: {fileID: 0}
   goldHeld: 0
   attacking: 0
+  sp: {fileID: 0}
 --- !u!95 &5860442745039221969
 Animator:
   serializedVersion: 7
@@ -247,6 +249,21 @@ MonoBehaviour:
   items:
   - {fileID: 3238501946644444048, guid: 8863271da6f866f088f22547f9fd9296, type: 3}
   - {fileID: 3238501946644444048, guid: bb0044dfced6da0fbb524d3a3d140042, type: 3}
+--- !u!114 &-954013826594129959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3584756881887614405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ee9bac15400847cebb1b11d201226d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  specialItem: {fileID: 3238501946644444048, guid: 7e993899fb23a40da89832f62f90169a, type: 3}
+  specialItemRef: {fileID: 0}
+  on: 0
 --- !u!1 &4369286240026900739
 GameObject:
   m_ObjectHideFlags: 0
