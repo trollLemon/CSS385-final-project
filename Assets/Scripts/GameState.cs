@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     
     public GameState gameState;
 
+    public float nightTimeScale;
+
     bool endOfCycle = true;
     // Start is called before the first frame update
     void Start()
@@ -87,7 +89,7 @@ public class GameManager : MonoBehaviour
         {
            
             
-            float t = elapsedTime / NightDuration * 0.1f;
+            float t = elapsedTime / NightDuration * nightTimeScale;
             GlobalLight.intensity = Mathf.Lerp(startIntensity, endIntensity, t);
           
             elapsedTime += Time.deltaTime;
