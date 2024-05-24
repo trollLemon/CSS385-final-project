@@ -23,10 +23,13 @@ public class Enemy : MonoBehaviour
     // Original color of the sprite
     private Color originalColor;
 
+    public SpecialDrop sp;
+
     // Start is called before the first frame update
     void Start()
     {
-
+    
+    sp= GetComponent<SpecialDrop>();
     spriteRenderer = GetComponent<SpriteRenderer>();
         // Store the original color of the sprite
     if (spriteRenderer != null)
@@ -44,7 +47,7 @@ public class Enemy : MonoBehaviour
      choice = Random.Range(0, 3);
      animator = GetComponent<Animator>();
      
-     if(targets[choice]== null){
+     if(choice == 3 && targets[2] == null){
         target = targets[0].transform;
      }
      target=targets[choice].transform;
@@ -116,8 +119,13 @@ public class Enemy : MonoBehaviour
                 target=targets[0].transform;
                 return;
             }
+
+            if(gold.gold==0) 
+            {
             gold.Take(1);
             goldHeld++;
+            }
+            sp.Enable();
             // set the target so the agent can run to exit (off screen)
             target=exit.transform;
              agent.speed = 2f;
@@ -150,7 +158,6 @@ public class Enemy : MonoBehaviour
                 break;
             }    
             Debug.Log( Vector3.Distance(transform.position, target.transform.position)) ;     
-            Debug.Log("Damaging"); 
             hp.DamagePlayer(10);
             yield return new WaitForSeconds(2);
             
