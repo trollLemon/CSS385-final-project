@@ -8,10 +8,16 @@ public class ItemBehavior : MonoBehaviour
     public int itemId;
     public InventoryManager inv;
     public bool pickedUp = false;
+
+    public GameObject goldPile;
+    
+    private Gold gld;
     // Start is called before the first frame update
     void Start()
     {
         inv = GameObject.Find("Equipment").GetComponent<InventoryManager>();
+        goldPile =  GameObject.Find("GoldPile");
+        gld = goldPile.GetComponent<Gold>();
     }
 
     // Update is called once per frame
@@ -24,7 +30,13 @@ public class ItemBehavior : MonoBehaviour
        
         if (other.CompareTag("Player"))
         {
-             Debug.Log("Hit");
+                
+                if(itemId==79 /*gold!!!*/)
+                {
+                    gld.Return(1);
+                    pickedUp=true;
+                }
+
                 if(itemId == 6){
                     if (inv.PickUpLog() == 0)
                     {
