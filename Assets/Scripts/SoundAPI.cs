@@ -5,9 +5,11 @@ using UnityEngine;
 public class SoundAPI : MonoBehaviour
 {
     public AudioSource audioSource;
+    public AudioClip extraClip;
     // Start is called before the first frame update
-
+    public float volume=0.5f;
     private bool playing;
+
 
     void Start()
     {
@@ -25,6 +27,21 @@ public class SoundAPI : MonoBehaviour
 	if(playing) return; //if the audio is playing already, dont start again
 	audioSource.Play();
 	playing = true;
+    }
+
+    public void OneShot()
+    {
+    audioSource.PlayOneShot(audioSource.clip, volume);
+    }
+
+    public void OneShotSpecial()
+    {
+     	    if(extraClip == null){
+	    Debug.Log("No extra Clip defined");
+	    }
+	    audioSource.PlayOneShot(extraClip, volume);
+     
+
     }
 
     public void StopAudio()
