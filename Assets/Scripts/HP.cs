@@ -8,16 +8,19 @@ public class HP : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     // Original color of the sprite
     private Color originalColor;
-
+    bool dead;
     public float hp;
     public int minItems;
     public float spawnOffset;
+    public float destroyDelay;
     public int maxItemSpawns;
+    public SoundAPI sapi;
     public GameObject[] items; //items to drop on descruction
-
+	
     // Start is called before the first frame update
     void Start()
     {
+   sapi = GetComponent<SoundAPI>();	    
     spriteRenderer = GetComponent<SpriteRenderer>();
         // Store the original color of the sprite
     if (spriteRenderer != null)
@@ -54,13 +57,16 @@ public class HP : MonoBehaviour
 
     void Die()
     {
+	dead=true;
+        sapi.OneShotSpecial();
         DropItems();
-        Destroy(gameObject);
+	Destroy(gameObject,destroyDelay);
     }
 
     public void Damage(float dmg)
     {
         hp-=dmg;
+	if(sapi !=null) sapi.OneShot();
         StartCoroutine(ChangeColorTemporarily());
     }
 
@@ -82,6 +88,7 @@ public class HP : MonoBehaviour
     {
         
         if(hp<=0){
+	    if(!dead)	
             Die();
         }
 
