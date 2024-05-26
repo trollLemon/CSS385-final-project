@@ -5,11 +5,12 @@ using UnityEngine;
 public class SoundAPI : MonoBehaviour
 {
     public AudioSource audioSource;
-    public AudioClip extraClip;
+    public AudioClip[] extraClips;
+    public AudioClip SpecialClip;
     // Start is called before the first frame update
     public float volume=0.5f;
     private bool playing;
-
+    private int nextSound = 0;
 
     void Start()
     {
@@ -36,14 +37,22 @@ public class SoundAPI : MonoBehaviour
 
     public void OneShotSpecial()
     {
-     	    if(extraClip == null){
-	    Debug.Log("No extra Clip defined");
+     	    if(extraClips == null){
+	    Debug.Log("No extra Clips defined");
 	    }
-	    audioSource.PlayOneShot(extraClip, volume);
-     
-
+	    audioSource.PlayOneShot(SpecialClip, volume);
     }
 
+    public void PlayExtra(bool switchNext) 
+    {
+	audioSource.PlayOneShot(extraClips[nextSound]);
+
+	if(switchNext)
+	{
+		nextSound++;
+		nextSound = nextSound % extraClips.Length;
+	}
+    }
     public void StopAudio()
     {
 	if(!playing) return;
