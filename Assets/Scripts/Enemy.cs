@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     
     public Animator animator;
    // public Animator eye_animator;
-
+    public SoundAPI sapi;
     [SerializeField] Transform target;
 
     public GameObject[] targets;
@@ -55,12 +55,13 @@ public class Enemy : MonoBehaviour
      Gold gold = targets[1].GetComponent<Gold>();
      if(gold.gold == 0) target=targets[0].transform;
      
-     
+     sapi = GetComponent<SoundAPI>(); 
      
      agent=GetComponent<NavMeshAgent>();
      agent.updateRotation=false;
      agent.updateUpAxis=false;   
-    
+
+     InvokeRepeating("Growl",1f,10f); 
      
     }
 
@@ -83,6 +84,12 @@ public class Enemy : MonoBehaviour
         Vector3 currentPosition = transform.position;
         currentPosition.z = currentPosition.y*0.01f;
         transform.position=currentPosition;
+    }
+
+
+    void Growl()
+    {
+     sapi.PlayExtra(true); //play a growl sound effect, and switch to next sound 
     }
 
     void PerformNextAction(){
