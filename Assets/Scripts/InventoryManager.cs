@@ -175,6 +175,7 @@ public class InventoryManager : MonoBehaviour
         logs++;
         return 0;
     }
+    
 
     void UseCoal()
     {

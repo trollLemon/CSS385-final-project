@@ -41,7 +41,7 @@ public class PlayerMovementOld : MonoBehaviour
     public float cameraMoveSpeed;
     public MovementState movementState;
     public LookDirection lookDirection;
-
+    public SoundAPI sapi;
     public BarrierDirection barrierDirection;
     public GameObject axePrefab;
     public GameObject torchPrefab;
@@ -117,7 +117,7 @@ public class PlayerMovementOld : MonoBehaviour
     {
         mainCamera = Camera.main;
         hand = transform.Find("Hand").gameObject;
-        
+        sapi = GetComponent<SoundAPI>();
         playerModel = GetComponent<SpriteRenderer>();
         handModel = hand.GetComponent<SpriteRenderer>();
         mouseWorldPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
@@ -214,7 +214,7 @@ public class PlayerMovementOld : MonoBehaviour
         {
             if (heldObject.name != "Axe" && heldObject.name != "Axe(Clone)")
             {
-
+                Debug.Log("Dropping");
                 DropObject();
             }
         }
@@ -393,11 +393,11 @@ public class PlayerMovementOld : MonoBehaviour
         if (horizontalInput == 0 && verticalInput == 0)
         {
             movementState = MovementState.Standing;
-            
+            sapi.StopAudio(); 
         } else
         {
             movementState = MovementState.Walking;
-            
+            sapi.StartAudio();
         }
 
 
@@ -610,6 +610,7 @@ public class PlayerMovementOld : MonoBehaviour
                 
                 if(inv.torches>0){ 
                 inv.UseTorch();
+                heldObject.GetComponentInChildren<Torch>().Light();
                 heldItemm=inv.torches;
                 }
             }
