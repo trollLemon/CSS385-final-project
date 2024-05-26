@@ -7,7 +7,7 @@ public class NightBehavior : MonoBehaviour
     // Start is called before the first frame update
     public GameObject[] spawns;
     public GameObject enemy;
-
+    public AudioSource audioData;
     public int maxEnemySpawn;
     public GameManager gm;
 
@@ -16,14 +16,18 @@ public class NightBehavior : MonoBehaviour
     {
      gm = GetComponent<GameManager>();
      spawns =  GameObject.FindGameObjectsWithTag("spawner");   
-    
+    audioData = GetComponent<AudioSource>();
      InvokeRepeating("SpawnObjectAtRandomIndex", spawnInterval, spawnInterval);
     }
 
     // Update is called once per frame
     void Update()
     {
-            
+          if(gm.gameState == GameManager.GameState.Night
+			  &&  audioData.mute == false)
+	  {
+		audioData.mute=true;
+	  }
     }
 
 
