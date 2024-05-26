@@ -14,7 +14,7 @@ public class DayBehavior : MonoBehaviour
 
     public float treePadding;
     public GameObject Tree;
-
+    private AudioSource audioData;
     public float numTrees;
 
     void Start()
@@ -27,6 +27,8 @@ public class DayBehavior : MonoBehaviour
         {
            SpawnTree();
         }
+	audioData = GetComponent<AudioSource>();
+	audioData.Play(0); 
     }
 
 
@@ -44,9 +46,10 @@ public class DayBehavior : MonoBehaviour
             daylock = false;
         }
         if(daylock) return;
-        if(gm.gameState == GameManager.GameState.Day){
-            daylock = true;
-
+	if(gm.gameState == GameManager.GameState.Day){
+            
+            audioData.mute=false;
+	    daylock = true;
             //spawn some trees
             for(int i =0 ; i< numTrees; ++i)
             {
