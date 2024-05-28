@@ -122,19 +122,19 @@ TextureImporter:
       name: log_sheet_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 543
-        width: 480
-        height: 174
+        x: 0
+        y: 512
+        width: 512
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 282114754895121b0800000000000000
-      internalID: -5683162829830417790
+      spriteID: 92e7c5d05482d114abaa6636336fd1fe
+      internalID: 819066897
       vertices: []
       indices: 
       edges: []
@@ -143,19 +143,19 @@ TextureImporter:
       name: log_sheet_1
       rect:
         serializedVersion: 2
-        x: 12
-        y: 290
-        width: 478
-        height: 162
+        x: 0
+        y: 256
+        width: 512
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d3f801fcb4c3e7050800000000000000
-      internalID: 5800139666393960253
+      spriteID: ef039d05719c20944947bcf1f9c57141
+      internalID: -166707190
       vertices: []
       indices: 
       edges: []
@@ -164,19 +164,19 @@ TextureImporter:
       name: log_sheet_2
       rect:
         serializedVersion: 2
-        x: 10
-        y: 39
-        width: 480
-        height: 157
+        x: 0
+        y: 0
+        width: 512
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9ae5278f218951de0800000000000000
-      internalID: -1363016104964628823
+      spriteID: ae660041bbfbc3a4d9d18436c2720a7c
+      internalID: 27395220
       vertices: []
       indices: 
       edges: []
@@ -184,14 +184,17 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b9e26655bcbbb274598b321dfe9fca02
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      log_sheet_0: 819066897
+      log_sheet_1: -166707190
+      log_sheet_2: 27395220
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
