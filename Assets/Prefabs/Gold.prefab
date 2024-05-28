@@ -154,6 +154,7 @@ MonoBehaviour:
   itemId: 79
   inv: {fileID: 0}
   pickedUp: 0
+  sapi: {fileID: 0}
   goldPile: {fileID: 0}
 --- !u!95 &-8946679444895763904
 Animator:
@@ -271,8 +272,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 77089a38fb1ef852d88a50119da24287, type: 3}
-  m_Resource: {fileID: 8300000, guid: 77089a38fb1ef852d88a50119da24287, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 795dcd3a0f6327d718f808bf79a28ea3, type: 3}
+  m_Resource: {fileID: 8300000, guid: 795dcd3a0f6327d718f808bf79a28ea3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

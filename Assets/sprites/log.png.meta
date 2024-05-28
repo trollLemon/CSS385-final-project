@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c158dc35523b40a4faf6c7d931581916
+guid: 8e406eb328e66374b8f4e2a941d70227
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6109888071392009663
-    second: corner_tl_forest_0
+      213: -5034061168752090764
+    second: log_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: corner_tl_forest_0
+      name: log_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
+        x: 10
+        y: 31
+        width: 480
+        height: 174
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 142684fab21553ba0800000000000000
-      internalID: -6109888071392009663
+      spriteID: 471a1f2e90c632ab0800000000000000
+      internalID: -5034061168752090764
       vertices: []
       indices: 
       edges: []
@@ -143,8 +143,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      corner_tl_forest_0: -6109888071392009663
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
