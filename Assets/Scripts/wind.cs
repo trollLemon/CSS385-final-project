@@ -40,7 +40,7 @@ public class wind : MonoBehaviour
         // slight variation in size
         float randomScale = Random.Range(0.5f, 1.5f);
         thisWind.transform.localScale = new Vector3(randomScale, randomScale, randomScale);
-        randomScale = Random.Range(0.5f, 1.5f);
+        randomScale = Random.Range(1.5f, 2.5f);
         thisWind2.transform.localScale = new Vector3(randomScale, randomScale, randomScale);
         
         // get anim clip length
