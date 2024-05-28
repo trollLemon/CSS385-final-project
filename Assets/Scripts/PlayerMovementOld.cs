@@ -91,6 +91,7 @@ public class PlayerMovementOld : MonoBehaviour
     private SpriteRenderer playerModel;
     private SpriteRenderer handModel;
     private SpriteRenderer axeModel;
+    private Collider2D axeCollider;
     private Color originalAxeColor;
     private Vector3 mouseWorldPosition;
 
@@ -204,13 +205,13 @@ public class PlayerMovementOld : MonoBehaviour
         }
 
         // Grab or drop objects when E is pressed
-        if (Input.GetKeyDown(KeyCode.E) && heldObject == null)
+        if (Input.GetMouseButtonDown(0) && heldObject == null)
         {
             
-            CheckForGrab();
+            // CheckForGrab();
         
             
-        } else if (Input.GetKeyDown(KeyCode.E) && heldObject != null)
+        } else if (Input.GetMouseButtonDown(0) && heldObject != null)
         {
             if (heldObject.name != "Axe" && heldObject.name != "Axe(Clone)")
             {
@@ -223,7 +224,7 @@ public class PlayerMovementOld : MonoBehaviour
 
 
         // Extend Camera View
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKey(KeyCode.E))
         {
             cameraReach = cameraExtendedReachFactor;
         } else
@@ -259,6 +260,8 @@ public class PlayerMovementOld : MonoBehaviour
                 
 
                 axeModel = heldObject.GetComponent<SpriteRenderer>();
+                axeCollider = heldObject.GetComponent<Collider2D>();
+                axeCollider.enabled = false;
 
                 // Get the initial rotation of the new object
                 Quaternion initialRotation = heldObject.transform.rotation;
@@ -293,62 +296,54 @@ public class PlayerMovementOld : MonoBehaviour
                 // Attach object to hand
                 newAxe.transform.SetParent(hand.transform);
                 newAxe.transform.localPosition = Vector3.zero;
+
+                isHoldingObject = true;
             }
             changeSelected = false;
 
         } else if (inv.selectedItem == 2 && changeSelected)
         {
-            //if(heldObject.name == "Axe" || heldObject.name == "Axe(Clone)"){
-                Destroy(heldObject);
-            //}
-
+            
             if (heldObject != null) {
-                DropObject();
+                Destroy(heldObject);
+                isHoldingObject = false;
             }
+            heldObject = null;
 
-            if(heldObject == null)
-            {
-                 if(inv.torches<=0) return;
-                GameObject newTorch = Instantiate(torchPrefab, hand.transform.position, transform.rotation);
-                heldObject = newTorch;
-                // Store initial local rotation relative to hand
-                initialRotation = heldObject.transform.rotation;
-              
-                // Attach object to hand
-                newTorch.transform.SetParent(hand.transform);
-                newTorch.transform.localPosition = Vector3.zero;
-                isHoldingObject = true;
-            }
+            if(inv.torches<=0) return;
+            GameObject newTorch = Instantiate(torchPrefab, hand.transform.position, transform.rotation);
+            heldObject = newTorch;
+            // Store initial local rotation relative to hand
+            initialRotation = heldObject.transform.rotation;
+            
+            // Attach object to hand
+            newTorch.transform.SetParent(hand.transform);
+            newTorch.transform.localPosition = Vector3.zero;
+            isHoldingObject = true;
+
             changeSelected = false;
         }else if (inv.selectedItem == 3 && changeSelected)
         {
-           // if(heldObject.name == "Axe" || heldObject.name == "Axe(Clone)"){
-             //   Destroy(heldObject);
-           // }
 
             if (heldObject != null) {
-                
-                    Destroy(heldObject);
-                
+                Destroy(heldObject);
             }
-            //heldObject=null; // I have no idea why we need to do this, but this is the only way to get the code in teh 
-                             // below if statement to run when the user selects it. 
-          //  if(heldObject == null)
-            //{
+            heldObject = null;
                 
-                if(inv.barriers<=0) return;
-                float rotationDegrees = barrierDirection == BarrierDirection.Horizontal ? 90f: 0f;
-                Quaternion rotation = transform.rotation * Quaternion.Euler(0, 0, rotationDegrees);
-                GameObject newBarrier = Instantiate(barrierPrefab, hand.transform.position, rotation);
-                heldObject = newBarrier;
-                // Store initial local rotation relative to hand
-                initialRotation = heldObject.transform.rotation;
-              
-                // Attach object to hand
-                newBarrier.transform.SetParent(hand.transform);
-                newBarrier.transform.localPosition = Vector3.zero;
-                isHoldingObject = true;
-            //}
+            if(inv.barriers<=0) return;
+
+            float rotationDegrees = barrierDirection == BarrierDirection.Horizontal ? 90f: 0f;
+            Quaternion rotation = transform.rotation * Quaternion.Euler(0, 0, rotationDegrees);
+            GameObject newBarrier = Instantiate(barrierPrefab, hand.transform.position, rotation);
+            heldObject = newBarrier;
+            // Store initial local rotation relative to hand
+            initialRotation = heldObject.transform.rotation;
+            
+            // Attach object to hand
+            newBarrier.transform.SetParent(hand.transform);
+            newBarrier.transform.localPosition = Vector3.zero;
+            isHoldingObject = true;
+            
             changeSelected = false;
         }
 
@@ -585,7 +580,7 @@ public class PlayerMovementOld : MonoBehaviour
 
     void UpdateHeldObjectRotation()
     {
-        if (heldObject != null && isHoldingObject)
+        if (heldObject != null && (heldObject.name == "Torch"|| heldObject.name == "Torch(Clone)" || heldObject.tag == "Torch"))
         {
             heldObject.transform.rotation = initialRotation;
         } else if (heldObject != null && (heldObject.name == "Barrier"|| heldObject.name == "Barrier(Clone)" || heldObject.tag == "Barrier"))
@@ -625,6 +620,7 @@ public class PlayerMovementOld : MonoBehaviour
             heldObject.transform.SetParent(null);
             heldObject = null;
             isHoldingObject = false;
+            changeSelected = true;
         }
 
         
@@ -684,6 +680,8 @@ public class PlayerMovementOld : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && !isAttacking && !endOfSwing)
         {
+            axeCollider.enabled = true;
+
             movementState = MovementState.Standing;
             prevSwingSpeed = swingSpeed;
             isAttacking = true;
@@ -717,6 +715,7 @@ public class PlayerMovementOld : MonoBehaviour
             superSwingPrimed = false;
             comboSuperSwing = false;
             endOfSwing = false;
+            axeCollider.enabled = true;
 
             if (lookDirection == LookDirection.Right)
             {
@@ -746,6 +745,7 @@ public class PlayerMovementOld : MonoBehaviour
             superSwingPrimed = false;
             comboSuperSwing = false;
             endOfSwing = false;
+            axeCollider.enabled = true;
 
             if (lookDirection == LookDirection.Right)
             {
@@ -776,6 +776,7 @@ public class PlayerMovementOld : MonoBehaviour
             superSwingPrimed = false;
             comboSuperSwing = true;
             endOfSwing = false;
+            axeCollider.enabled = true;
 
             axeModel.color = originalAxeColor;
 
@@ -857,6 +858,7 @@ public class PlayerMovementOld : MonoBehaviour
                 if (currentPointIndex == arcPoints.Count - 1 || currentPointIndex == 0)
                 {
                     endOfSwing = true;
+                    axeCollider.enabled = false;
                     StartCoroutine(DelayIsAttackingFalse());
                 }
                
