@@ -8,15 +8,13 @@ public class Enemy : MonoBehaviour
     
     public Animator animator;
    // public Animator eye_animator;
-
+    public SoundAPI sapi;
     [SerializeField] Transform target;
 
     public GameObject[] targets;
     public GameObject exit;
     private int choice;
     public int goldHeld=0;
-
-    public int health = 50;
     
     public bool attacking = false;
     NavMeshAgent agent;
@@ -25,10 +23,13 @@ public class Enemy : MonoBehaviour
     // Original color of the sprite
     private Color originalColor;
 
+    public SpecialDrop sp;
+
     // Start is called before the first frame update
     void Start()
     {
-
+    
+    sp= GetComponent<SpecialDrop>();
     spriteRenderer = GetComponent<SpriteRenderer>();
         // Store the original color of the sprite
     if (spriteRenderer != null)
@@ -46,7 +47,7 @@ public class Enemy : MonoBehaviour
      choice = Random.Range(0, 3);
      animator = GetComponent<Animator>();
      
-     if(targets[choice]== null){
+     if(choice == 3 && targets[2] == null){
         target = targets[0].transform;
      }
      target=targets[choice].transform;
@@ -54,12 +55,13 @@ public class Enemy : MonoBehaviour
      Gold gold = targets[1].GetComponent<Gold>();
      if(gold.gold == 0) target=targets[0].transform;
      
-     
+     sapi = GetComponent<SoundAPI>(); 
      
      agent=GetComponent<NavMeshAgent>();
      agent.updateRotation=false;
      agent.updateUpAxis=false;   
-    
+
+     InvokeRepeating("Growl",1f,10f); 
      
     }
 
@@ -85,29 +87,9 @@ public class Enemy : MonoBehaviour
     }
 
 
-    private void Die(){
-        
-        //TODO:Drop stuff: gold, crafting mats
-        Destroy(gameObject);
-    }
-
-    public void Damage(int dmg){
-        health-=dmg;
-        StartCoroutine(ChangeColorTemporarily());
-        if(health<=0) Die();
-    }
-
-    private IEnumerator ChangeColorTemporarily()
+    void Growl()
     {
-        if (spriteRenderer != null)
-        {
-            // Change the color to red
-            spriteRenderer.color = Color.red;
-            // Wait for 1 second
-            yield return new WaitForSeconds(1f);
-            // Change the color back to the original color
-            spriteRenderer.color = originalColor;
-        }
+     sapi.PlayExtra(true); //play a growl sound effect, and switch to next sound 
     }
 
     void PerformNextAction(){
@@ -118,7 +100,7 @@ public class Enemy : MonoBehaviour
         // so we do not need to worry about if this statement executes when the enemy attacks the player. 
 
         if(Vector3.Distance(transform.position, exit.transform.position)<2f){
-            Die();
+            Destroy(gameObject);
             return;
         }
        
@@ -144,8 +126,13 @@ public class Enemy : MonoBehaviour
                 target=targets[0].transform;
                 return;
             }
+
+            if(gold.gold==0) 
+            {
             gold.Take(1);
             goldHeld++;
+            }
+            sp.Enable();
             // set the target so the agent can run to exit (off screen)
             target=exit.transform;
              agent.speed = 2f;
@@ -178,7 +165,6 @@ public class Enemy : MonoBehaviour
                 break;
             }    
             Debug.Log( Vector3.Distance(transform.position, target.transform.position)) ;     
-            Debug.Log("Damaging"); 
             hp.DamagePlayer(10);
             yield return new WaitForSeconds(2);
             

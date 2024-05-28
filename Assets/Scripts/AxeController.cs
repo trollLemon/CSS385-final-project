@@ -32,17 +32,10 @@ public class AxeController : MonoBehaviour
 
         if(!isAttacking) return;
         
-        if (other.CompareTag("ForestCreature")){
 
-                Enemy ai = other.GetComponent<Enemy>();
-                ai.Damage(damage);
-
-        }
-        if(other.CompareTag("Damagable"))
-        {
             HP obj = other.GetComponent<HP>();
             obj.Damage((float)damage);
-        }
+        
 
     }
 }
