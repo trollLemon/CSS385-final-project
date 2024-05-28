@@ -267,10 +267,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
   extraClips:
-  - {fileID: 8300000, guid: 1cb52f995b5414f75abc663d423a4f59, type: 3}
-  - {fileID: 8300000, guid: 80ec3de9a8c5acbe5bd901e0052fdce3, type: 3}
-  - {fileID: 8300000, guid: f08de6e344df9f78bb12a8d082d048c5, type: 3}
-  SpecialClip: {fileID: 0}
+  - {fileID: 8300000, guid: 0303ddf7d8c44f395b725fc6e2402371, type: 3}
+  - {fileID: 8300000, guid: 84ae8f18ede4950bfaf14557f1670c2f, type: 3}
+  - {fileID: 8300000, guid: 5a86c24b04fe97ec78a370b16f7c68ae, type: 3}
+  SpecialClip: {fileID: 8300000, guid: 343f83d3b481a3c398acfce11970aa2c, type: 3}
   volume: 0.5
 --- !u!82 &7170274741191328882
 AudioSource:

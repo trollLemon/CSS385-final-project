@@ -146,10 +146,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
-  minItems: 2
+  minItems: 1
   spawnOffset: 1
   destroyDelay: 0.25
-  maxItemSpawns: 3
+  maxItemSpawns: 2
   sapi: {fileID: 0}
   items:
   - {fileID: 3238501946644444048, guid: 8863271da6f866f088f22547f9fd9296, type: 3}

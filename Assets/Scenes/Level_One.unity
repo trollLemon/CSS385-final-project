@@ -996,7 +996,7 @@ MonoBehaviour:
   audioData: {fileID: 0}
   maxEnemySpawn: 3
   gm: {fileID: 0}
-  spawnInterval: 30
+  spawnInterval: 15
 --- !u!114 &384783216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1009,11 +1009,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a620709b499829bc8cbcb1d4d7cfa3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DayDuration: 40
-  NightDuration: 300
+  DayDuration: 50
+  NightDuration: 60
   GlobalLight: {fileID: 0}
   gameState: 0
-  nightTimeScale: 0.12
+  nightTimeScale: 0.05
 --- !u!4 &384783217
 Transform:
   m_ObjectHideFlags: 0
@@ -1046,7 +1046,7 @@ MonoBehaviour:
   playArea: {fileID: 333493525}
   treePadding: 1.61
   Tree: {fileID: 641834594081293971, guid: cc85e4179d115543794df359f2c2af19, type: 3}
-  numTrees: 10
+  numTrees: 4
 --- !u!82 &384783219
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6616,14 +6616,14 @@ MonoBehaviour:
   arcWidth: 90
   isAttacking: 0
   isBlocking: 0
-  comboSwing1: 0
+  comboSwing1: 1
   comboSwing2: 0
   comboSwing3: 0
   superSwingPrimed: 0
   comboSuperSwing: 0
   isCrafting: 0
   footprint: {fileID: 3798765114426345409, guid: 270e5cec5f4351c4781c2f91701f3761, type: 3}
-  footprintSpawnRate: 0.3
+  footprintSpawnRate: 3
   axeBlockObject: {fileID: 6836196666721997707, guid: 4ec634d7bfc78074b806b31d497519e8, type: 3}
   inv: {fileID: 0}
   playArea: {fileID: 0}
