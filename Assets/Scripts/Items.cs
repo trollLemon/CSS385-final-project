@@ -7,6 +7,7 @@ public class Items : MonoBehaviour
 
    
     public InventoryManager items;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,14 +17,24 @@ public class Items : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Q))
+
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+
+        if(Input.GetKeyDown(KeyCode.Q) || scroll < 0f)
         {
             items.switchItems();
+        } else if (scroll > 0f)
+        {
+            items.switchItemsUp();
         }
 
-        if(Input.GetKeyDown(KeyCode.R)){
+        if(Input.GetKeyDown(KeyCode.R) && items.selectedItem == 2){
             Debug.Log("Craft Torch");
             items.CraftTorch();
+        } else if (Input.GetKeyDown(KeyCode.R) && items.selectedItem == 3)
+        {
+            Debug.Log("Craft Barrier");
+            items.CraftBarrier();
         }
     }
 }

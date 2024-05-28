@@ -59,6 +59,12 @@ public class PlayerMovementOld : MonoBehaviour
     public bool comboSwing3 = false;
     public bool superSwingPrimed = false;
     public bool comboSuperSwing = false;
+    public bool isCrafting = false;
+    public GameObject footprint;
+    public float footprintSpawnRate;
+
+    private float instantiationFootprintTime;
+    private float currentFootprintTime;
 
     private bool endOfSwing = false;
     private float prevSwingSpeed;
@@ -140,9 +146,10 @@ public class PlayerMovementOld : MonoBehaviour
 
         prevMoveSpeed = moveSpeed;
 
-
-        // Will clean up
         previousSelectedItem = inv.selectedItem;
+
+        instantiationFootprintTime = Time.time;
+        currentFootprintTime = instantiationFootprintTime;
     }
 
     // Update is called once per frame
@@ -151,7 +158,16 @@ public class PlayerMovementOld : MonoBehaviour
         // Keep track of mouse position
         mouseWorldPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
-        if (!isAttacking)
+        if (Input.GetKey(KeyCode.R))
+        {
+            isCrafting = true;
+            movementState = MovementState.Standing;
+        } else
+        {
+            isCrafting = false;
+        }
+
+        if (!isAttacking && !isCrafting)
         {
             // Perform movement
             Movement();
@@ -167,6 +183,8 @@ public class PlayerMovementOld : MonoBehaviour
         // Movement animation control
         MovementAnimation();
 
+        // Create Footprints
+        CreateFootprints();
 
         // Camera positioning
         CameraPosition();
@@ -244,6 +262,7 @@ public class PlayerMovementOld : MonoBehaviour
         if(inv.selectedItem == 0 && changeSelected) {
 
             Destroy(heldObject);
+            isHoldingObject = false;
             changeSelected = false;
 
         // change to axe.
@@ -251,8 +270,10 @@ public class PlayerMovementOld : MonoBehaviour
         {
 
             if (heldObject != null) {
-                DropObject();
+                Destroy(heldObject);
+                isHoldingObject = false;
             }
+            heldObject = null;
 
             if(heldObject == null) {
                 GameObject newAxe = Instantiate(axePrefab, hand.transform.position, hand.transform.rotation);
@@ -336,6 +357,9 @@ public class PlayerMovementOld : MonoBehaviour
             Quaternion rotation = transform.rotation * Quaternion.Euler(0, 0, rotationDegrees);
             GameObject newBarrier = Instantiate(barrierPrefab, hand.transform.position, rotation);
             heldObject = newBarrier;
+
+            heldObject.GetComponent<Collider2D>().enabled = false;
+
             // Store initial local rotation relative to hand
             initialRotation = heldObject.transform.rotation;
             
@@ -371,6 +395,53 @@ public class PlayerMovementOld : MonoBehaviour
         }
     }
 
+    private void CreateFootprints()
+    {
+
+        if (movementState == MovementState.Walking)
+        {
+            if (currentFootprintTime - instantiationFootprintTime < footprintSpawnRate )
+            {
+                currentFootprintTime = Time.time;
+            } else 
+            {
+                instantiationFootprintTime = Time.time;
+                currentFootprintTime = instantiationFootprintTime;
+                Vector3 footprintPosition = transform.position;
+                footprintPosition.y = footprintPosition.y - 1.5f;
+                footprintPosition.z = transform.position.z + 20f;
+
+                Quaternion additionalRotation = Quaternion.Euler(0f, 0f, 33f);
+
+                if(isBlocking)
+                {
+                    if (lookDirection == LookDirection.Right)
+                    {
+                        additionalRotation = Quaternion.Euler(0f, 0f, 33f - 90f);
+                    } else
+                    {
+                        additionalRotation = Quaternion.Euler(0f, 0f, 33f + 90f);
+                    }
+                    
+                } else
+                {
+                    additionalRotation = Quaternion.Euler(0f, 0f, 33f);
+                }
+
+                Quaternion handRotation = hand.transform.rotation;
+
+                Quaternion finalRotation = handRotation * additionalRotation;
+
+
+
+                Instantiate(footprint, footprintPosition, finalRotation);
+            }
+        } else
+        {
+            instantiationFootprintTime = Time.time;
+        }
+    }
+
     private void AttackingAnimation()
     {
         if(isAttacking)
@@ -401,14 +472,14 @@ public class PlayerMovementOld : MonoBehaviour
 
         // Calculate speed based input
         float speed = 0;
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            speed = moveDirection.magnitude * sprintSpeed;
-            movementState = MovementState.Sprinting;
-        } else
-        {
+        // if (Input.GetKey(KeyCode.LeftShift))
+        // {
+        //     speed = moveDirection.magnitude * sprintSpeed;
+        //     movementState = MovementState.Sprinting;
+        // } else
+        // {
             speed = moveDirection.magnitude * moveSpeed;
-        }
+        // }
         
 
         // Normalize the moveDirection if it's not zero to keep the same direction but adjust speed
@@ -477,7 +548,7 @@ public class PlayerMovementOld : MonoBehaviour
         }
         
         hand.transform.rotation = Quaternion.RotateTowards(hand.transform.rotation, targetRotation, 1000 * Time.deltaTime);
-        hand.transform.position = new Vector3(handUnitCircle.x + transform.position.x, handUnitCircle.y + transform.position.y, transform.position.z - 1);
+        hand.transform.position = new Vector3(handUnitCircle.x + transform.position.x, handUnitCircle.y + transform.position.y, transform.position.z - 0.1f);
     }
 
     private void ChangeModelDirection()
@@ -614,6 +685,7 @@ public class PlayerMovementOld : MonoBehaviour
                 
                 if(inv.barriers>0){
                 inv.UseBarrier();
+                heldObject.GetComponent<Collider2D>().enabled = true;
                 heldItemm=inv.barriers;
                 }
             }

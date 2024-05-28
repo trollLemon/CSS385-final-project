@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2273516022822745240}
   - component: {fileID: -4479480069410901850}
   - component: {fileID: 5283016873151028486}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: barrier
   m_TagString: wall
   m_Icon: {fileID: 0}

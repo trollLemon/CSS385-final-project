@@ -17,10 +17,10 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Tree
+  - Torch
+  - Barrier
   - 
   - 
   - 

@@ -28,6 +28,10 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Tree"), true);
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Torch"), true);
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Enemy"), true);
     
     sp= GetComponent<SpecialDrop>();
     spriteRenderer = GetComponent<SpriteRenderer>();
@@ -84,6 +88,24 @@ public class Enemy : MonoBehaviour
         Vector3 currentPosition = transform.position;
         currentPosition.z = currentPosition.y*0.01f;
         transform.position=currentPosition;
+
+
+
+        Vector3 targetDirection = targets[choice].transform.position - transform.position;
+        float targetAngle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
+        Vector3 newScale = transform.localScale;
+        if (Mathf.Abs(targetAngle) < 90)
+        {
+            newScale.x = -1;
+            transform.localScale = newScale;
+
+        } else
+        {
+            newScale.x = 1;
+            transform.localScale = newScale;
+        }
+
+
     }
 
 
