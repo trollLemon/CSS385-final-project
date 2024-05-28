@@ -543,7 +543,7 @@ MonoBehaviour:
   fire: {fileID: 0}
   intensity: 1
   outer_rad: 0
-  decay: 0.0001
+  decay: 0.0002
   rad_decay: 0.001
   ocil: 40
   lit: 0

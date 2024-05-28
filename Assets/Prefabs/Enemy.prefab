@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2355114901577459843}
   - component: {fileID: 245031722934779933}
   - component: {fileID: 7170274741191328882}
+  - component: {fileID: 2422507469521065172}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: ForestCreature
@@ -369,6 +370,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2422507469521065172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3584756881887614405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b13bea1e04b8b44973a2c2649aedd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  specialItem: {fileID: 3238501946644444048, guid: 83f0ca774f33244fcb8570d59861179b, type: 3}
+  specialItemRef: {fileID: 0}
+  on: 0
 --- !u!1 &4369286240026900739
 GameObject:
   m_ObjectHideFlags: 0
