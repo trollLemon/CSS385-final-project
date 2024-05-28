@@ -130,6 +130,15 @@ public class InventoryManager : MonoBehaviour
 
     }
 
+    public void switchItemsUp()
+    {
+        selectedItem--;
+        if (selectedItem < 0)
+        {
+            selectedItem = numItems - 1;
+        }
+    }
+
     public void UseTorch(){
         torches--;
     }
@@ -149,7 +158,7 @@ public class InventoryManager : MonoBehaviour
     public int CraftTorch()
     {
         if(torches == MAXITEMS) return 1;
-        if(coal <=0 && sticks <= 0) return 1;
+        if(coal <=0 || sticks <= 0) return 1;
         torches++;
         UseCoal();
         UseSticks();

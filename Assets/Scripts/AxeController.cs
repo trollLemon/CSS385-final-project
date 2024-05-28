@@ -32,10 +32,11 @@ public class AxeController : MonoBehaviour
 
         if(!isAttacking) return;
         
-
-            HP obj = other.GetComponent<HP>();
-            obj.Damage((float)damage);
-        
+            if (other.name == "Tree" || other.name == "Tree(Clone)" || other.name == "Enemy" || other.name == "Enemy(Clone)") 
+            {
+                HP obj = other.GetComponent<HP>();
+                obj.Damage((float)damage);
+            }
 
     }
 }
