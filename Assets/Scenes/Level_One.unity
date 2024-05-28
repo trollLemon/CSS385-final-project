@@ -1009,7 +1009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a620709b499829bc8cbcb1d4d7cfa3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DayDuration: 240
+  DayDuration: 40
   NightDuration: 300
   GlobalLight: {fileID: 0}
   gameState: 0
@@ -6621,6 +6621,9 @@ MonoBehaviour:
   comboSwing3: 0
   superSwingPrimed: 0
   comboSuperSwing: 0
+  isCrafting: 0
+  footprint: {fileID: 3798765114426345409, guid: 270e5cec5f4351c4781c2f91701f3761, type: 3}
+  footprintSpawnRate: 0.3
   axeBlockObject: {fileID: 6836196666721997707, guid: 4ec634d7bfc78074b806b31d497519e8, type: 3}
   inv: {fileID: 0}
   playArea: {fileID: 0}
