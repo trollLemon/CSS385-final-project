@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1965210717624699265}
   - component: {fileID: 7041133413482557266}
   - component: {fileID: 258724991068286832}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: torch_sheet_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 1161770434434963205}
   - component: {fileID: 2771561354155179070}
   - component: {fileID: 1456378093770387922}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Torch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -255,7 +255,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2116463942151045220}
   - component: {fileID: 5953572228775795524}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 7145275709209843032}
   - component: {fileID: 5517946265967985661}
   - component: {fileID: 7730129297784382278}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: fire_anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -452,7 +452,7 @@ GameObject:
   - component: {fileID: 1392385648580392438}
   - component: {fileID: 5956200275096301788}
   - component: {fileID: 7837609717887587806}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -540,9 +540,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameLight: {fileID: 0}
+  fire: {fileID: 0}
   intensity: 1
   outer_rad: 0
-  decay: 0.0001
+  decay: 0.0002
   rad_decay: 0.001
   ocil: 40
   lit: 0

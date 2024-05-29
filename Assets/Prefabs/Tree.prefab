@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 7983902261550473769}
   - component: {fileID: 4385320868737641099}
   - component: {fileID: -2262581435525739249}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tree
   m_TagString: Damagable
   m_Icon: {fileID: 0}
@@ -146,10 +146,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
-  minItems: 2
+  minItems: 1
   spawnOffset: 1
   destroyDelay: 0.25
-  maxItemSpawns: 3
+  maxItemSpawns: 2
   sapi: {fileID: 0}
   items:
   - {fileID: 3238501946644444048, guid: 8863271da6f866f088f22547f9fd9296, type: 3}

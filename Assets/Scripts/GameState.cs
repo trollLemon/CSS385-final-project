@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public GameState gameState;
 
     public float nightTimeScale;
-
+    public float startLight;
     bool endOfCycle = true;
     // Start is called before the first frame update
     void Start()
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         gameState=GameState.Day;
         GlobalLight = GameObject.Find("GlobalLight").GetComponent<Light2D>();
         //StartCoroutine(NightCycle());
-
+	startLight = GlobalLight.intensity;
     }
 
     // Update is called once per frame
@@ -58,8 +58,8 @@ public class GameManager : MonoBehaviour
     IEnumerator DayCycle()
     {
         float elapsedTime = 0f;
-        float startIntensity = 1f;
-        float endIntensity = 0.004f;
+        float startIntensity = startLight;
+        float endIntensity = 0f;
         GlobalLight.intensity = startIntensity;
         while (elapsedTime < DayDuration)
         {
@@ -82,8 +82,8 @@ public class GameManager : MonoBehaviour
     IEnumerator NightCycle()
     {
         float elapsedTime = 0f;
-        float startIntensity = 0.004f;
-        float endIntensity = 1.0f;
+        float startIntensity = 0f;
+        float endIntensity = startLight;
         GlobalLight.intensity = startIntensity;
         while (elapsedTime < NightDuration)
         {

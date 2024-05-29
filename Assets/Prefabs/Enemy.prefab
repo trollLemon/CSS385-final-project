@@ -18,7 +18,8 @@ GameObject:
   - component: {fileID: 2355114901577459843}
   - component: {fileID: 245031722934779933}
   - component: {fileID: 7170274741191328882}
-  m_Layer: 0
+  - component: {fileID: 2422507469521065172}
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: ForestCreature
   m_Icon: {fileID: 0}
@@ -267,10 +268,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
   extraClips:
-  - {fileID: 8300000, guid: 1cb52f995b5414f75abc663d423a4f59, type: 3}
-  - {fileID: 8300000, guid: 80ec3de9a8c5acbe5bd901e0052fdce3, type: 3}
-  - {fileID: 8300000, guid: f08de6e344df9f78bb12a8d082d048c5, type: 3}
-  SpecialClip: {fileID: 0}
+  - {fileID: 8300000, guid: 0303ddf7d8c44f395b725fc6e2402371, type: 3}
+  - {fileID: 8300000, guid: 84ae8f18ede4950bfaf14557f1670c2f, type: 3}
+  - {fileID: 8300000, guid: 5a86c24b04fe97ec78a370b16f7c68ae, type: 3}
+  SpecialClip: {fileID: 8300000, guid: 343f83d3b481a3c398acfce11970aa2c, type: 3}
   volume: 0.5
 --- !u!82 &7170274741191328882
 AudioSource:
@@ -282,7 +283,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: dead986f6e413c139b14a7707f80f455, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: dead986f6e413c139b14a7707f80f455, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -369,6 +370,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2422507469521065172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3584756881887614405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b13bea1e04b8b44973a2c2649aedd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  specialItem: {fileID: 3238501946644444048, guid: 83f0ca774f33244fcb8570d59861179b, type: 3}
+  specialItemRef: {fileID: 0}
+  on: 0
 --- !u!1 &4369286240026900739
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,7 +395,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3726425976180346156}
   - component: {fileID: 4222408504402256472}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -463,7 +479,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2576883893746962054}
   - component: {fileID: 6029843720309139074}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wolf_eye_default_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

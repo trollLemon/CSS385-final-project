@@ -32,7 +32,7 @@ public class Torch : MonoBehaviour
     void Start()
     {
     gameLight= GetComponent<Light2D>(); 
-    fire = transform.parent.Find("torch_fire_sheet_0").gameObject;
+    fire = transform.parent.Find("torch_sheet_0").gameObject;
     fire.GetComponent<SpriteRenderer>().sortingOrder += 1;
     intensity=gameLight.intensity;
     gameLight.intensity=0;
@@ -41,6 +41,7 @@ public class Torch : MonoBehaviour
     fireSprite = GetComponentInChildren<SpriteRenderer>();
     fireSprite.enabled = false;
 
+        carver.enabled = false;
     }
 
     public void Light()
@@ -48,6 +49,8 @@ public class Torch : MonoBehaviour
         lit=true;
         carver.carving=true;
         fireSprite.enabled = true;
+
+        carver.enabled = true;
     }
 
     // Update is called once per frame
