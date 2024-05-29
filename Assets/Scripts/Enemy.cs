@@ -51,7 +51,7 @@ public class Enemy : MonoBehaviour
      choice = Random.Range(0, 3);
      animator = GetComponent<Animator>();
      
-     if(choice == 3 && targets[2] == null){
+     if(choice == 2 && targets[2] == null){
         target = targets[0].transform;
      }
      target=targets[choice].transform;
