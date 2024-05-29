@@ -149,7 +149,7 @@ public class Enemy : MonoBehaviour
                 return;
             }
 
-            if(gold.gold==0) 
+            if(goldHeld==0) 
             {
             gold.Take(1);
             goldHeld++;
