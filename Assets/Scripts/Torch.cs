@@ -33,7 +33,7 @@ public class Torch : MonoBehaviour
     {
     gameLight= GetComponent<Light2D>(); 
     fire = transform.parent.Find("torch_sheet_0").gameObject;
-    fire.GetComponent<SpriteRenderer>().sortingOrder += 1;
+    fire.GetComponent<SpriteRenderer>().sortingOrder += 3;
     intensity=gameLight.intensity;
     gameLight.intensity=0;
     carver = GetComponent<UnityEngine.AI.NavMeshObstacle>();
