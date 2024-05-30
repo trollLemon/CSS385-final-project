@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
    // public Animator eye_animator;
     public SoundAPI sapi;
     [SerializeField] Transform target;
-
+    public GameManager gm;
     public GameObject[] targets;
     public GameObject exit;
     private int choice;
@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+	gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Tree"), true);
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Torch"), true);
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Enemy"), true);
@@ -73,9 +73,13 @@ public class Enemy : MonoBehaviour
     void Update()
     {
 
+	if(gm.gameState == GameManager.GameState.Day) {
+	target = exit.transform;
+	}
+
         if(target==null){
             target = targets[0].transform;
-            choice=0;
+            choice=-1;
         } 
         agent.SetDestination(target.position);
 
