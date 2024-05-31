@@ -87,10 +87,10 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: gold_amt
-    m_EventTreshold: 75
+    m_EventTreshold: 10
   - m_ConditionMode: 3
     m_ConditionEvent: gold_amt
-    m_EventTreshold: 25
+    m_EventTreshold: 5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5337646735570983455}
   m_Solo: 0
@@ -115,7 +115,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: gold_amt
-    m_EventTreshold: 26
+    m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -3209601091613049354}
   m_Solo: 0
@@ -142,7 +142,7 @@ AnimatorController:
   - m_Name: gold_amt
     m_Type: 3
     m_DefaultFloat: 0
-    m_DefaultInt: 100
+    m_DefaultInt: 10
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   m_AnimatorLayers:
