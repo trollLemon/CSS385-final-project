@@ -20333,7 +20333,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   goldText: {fileID: 264600189}
   text: {fileID: 655524312}
-  gold: 100
+  gold: 10
 --- !u!95 &1494591091
 Animator:
   serializedVersion: 7
