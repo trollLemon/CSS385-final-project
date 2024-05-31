@@ -56,7 +56,7 @@ public class Torch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+	fire.GetComponent<SpriteRenderer>().sortingOrder = 1;
         if(!lit) 
         {
             return;
