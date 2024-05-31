@@ -8,6 +8,7 @@ public class Torch : MonoBehaviour
 
     public Light2D gameLight;
     public GameObject fire;
+    public GameObject flame;
     public float intensity;
     public float outer_rad;
     public float decay = 0.0001f;
@@ -28,12 +29,18 @@ public class Torch : MonoBehaviour
         intensity += delta;
         return intensity;
     }
-    
-    void Start()
+
+
+  void Start()
     {
     gameLight= GetComponent<Light2D>(); 
     fire = transform.parent.Find("torch_sheet_0").gameObject;
-    fire.GetComponent<SpriteRenderer>().sortingOrder += 3;
+    flame = transform.Find("fire_anim").gameObject;
+
+    Vector3 flamePos = new Vector3(flame.transform.position.x, flame.transform.position.y, fire.transform.position.z - 10 );
+    flame.transform.position = flamePos;
+    
+    
     intensity=gameLight.intensity;
     gameLight.intensity=0;
     carver = GetComponent<UnityEngine.AI.NavMeshObstacle>();
@@ -43,6 +50,8 @@ public class Torch : MonoBehaviour
 
         carver.enabled = false;
     }
+
+
 
     public void Light()
     {
