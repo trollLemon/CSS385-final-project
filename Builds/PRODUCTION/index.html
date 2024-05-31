@@ -3,11 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity Web Player | CSS 385 Final Project</title>
+    <title>Alaskan Nightfall Gold Rush</title>
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
+    
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=1024 height=576 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
@@ -20,9 +22,95 @@
       <div id="unity-footer">
         <div id="unity-logo-title-footer"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">CSS 385 Final Project</div>
+        <div id="unity-build-title">Alaskan Nightfall Gold Rush</div>
       </div>
     </div>
+    <!-- insert controls in a div here + go back button -->
+    <div class = "blankDiv">
+
+    </div>
+    <div class = "main">
+
+      <div class = "banner">
+        <h2>
+
+        </h2>
+      </div>
+      <div class = "banner">
+          <div class = "bcol">
+              <!-- button input -->
+            <p>WASD</p>
+          </div>
+          <div class = "bcol ralign">
+              <!-- what it does -->
+              <p>Player movement</p>
+          </div>
+      </div>
+      <div class = "banner">
+        <div class = "bcol">
+            <!-- button input -->
+          <p>Q / Mouse Wheel</p>
+        </div>
+        <div class = "bcol ralign">
+            <!-- what it does -->
+            <p>Move through inventory</p>
+        </div>
+    </div>
+    <div class = "banner">
+      <div class = "bcol">
+          <!-- button input -->
+        <p>R</p>
+      </div>
+      <div class = "bcol ralign">
+          <!-- what it does -->
+          <p>Crafting</p>
+      </div>
+  </div>
+  <div class = "banner">
+    <div class = "bcol">
+        <!-- button input -->
+      <p>E</p>
+    </div>
+    <div class = "bcol ralign">
+        <!-- what it does -->
+        <p>Look into the distance</p>
+    </div>
+</div>
+<div class = "banner">
+  <div class = "bcol">
+      <!-- button input -->
+    <p>Left Click</p>
+  </div>
+  <div class = "bcol ralign">
+      <!-- what it does -->
+      <p>Attack<br/>Multiple clicks for combo<br/>Wait before clicking after second swing for a combo finisher!</p>
+  </div>
+</div>
+<div class = "banner">
+  <div class = "bcol">
+      <!-- button input -->
+    <p>Hold Right Click</p>
+  </div>
+  <div class = "bcol ralign">
+      <!-- what it does -->
+      <p>Blocking</p>
+  </div>
+</div>
+<div class = "banner">
+  <div class = "bcol">
+      <!-- button input -->
+    <p>Left Click While Blocking</p>
+  </div>
+  <div class = "bcol ralign">
+      <!-- what it does -->
+      <p>Bunt enemies away</p>
+  </div>
+</div>
+      <div class = "banner">
+          <!-- home button -->
+          <a href = "../../index.html"><div class = "button">Return to Home</div></a>
+      </div>
+  </div>
     <script>
       var canvas = document.querySelector("#unity-canvas");
 
@@ -110,6 +198,10 @@
                 alert(message);
               });
             };
+
+            let absoluteDivHeight = document.getElementById('unity-container')[0].offsetHeight;
+            let blankDiv = document.getElementByClassName('blankDiv')[0];
+            blankDiv.style.height = absoluteDivHeight + 5 + "px";
 
       document.body.appendChild(script);
 
