@@ -80,9 +80,8 @@ iframe[src*="docs.google.com"], iframe[src*="youtube.com"] {
     padding-right: 10px;
 }
 
-.xlcol {
-    flex : 33%;
-    padding : 10px;
+.ralign {
+    text-align: right;
 }
 
 .ifbox {
