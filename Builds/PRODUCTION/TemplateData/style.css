@@ -1,8 +1,6 @@
 body { 
     padding: 0; 
     margin: 0;
-    background-color: #434A57; /* RGB 67, 74, 87 */
-    font-family: Verdana, sans-serif;
 }
 #unity-container { position: absolute }
 #unity-container.unity-desktop { left: 50%; top: 50%; transform: translate(-50%, -50%) }
@@ -36,14 +34,7 @@ a {
     width : 100%;
 }
 
-.main {
-    width : 90%;
-    background-color : #FFFFFF;
-    color : #000000;
-    margin : 20px;
-    margin : auto;
-    padding : 10px;
-}
+
 
 .banner {
     display : flex;
@@ -60,8 +51,13 @@ a {
     padding-right: 10px;
 }
 
-.ralign {
-    text-align: right;
+
+.balign {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: 10%;
+    width: 100%;
 }
 
 .button {
@@ -70,7 +66,7 @@ a {
     color : #D6E4EA; /* RGB 214, 228, 234 */
     padding : 10px;
     margin : auto;
-    font-size : 2em;
+    font-size : 1em;
     font-family : 'Oswald', Verdana, sans-serif;
     text-align : center;
 }
