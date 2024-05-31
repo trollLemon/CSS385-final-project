@@ -179,6 +179,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   sapi: {fileID: 0}
   target: {fileID: 0}
+  gm: {fileID: 0}
   targets: []
   exit: {fileID: 0}
   goldHeld: 0
@@ -283,8 +284,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: dead986f6e413c139b14a7707f80f455, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 343f83d3b481a3c398acfce11970aa2c, type: 3}
+  m_Resource: {fileID: 8300000, guid: 343f83d3b481a3c398acfce11970aa2c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
