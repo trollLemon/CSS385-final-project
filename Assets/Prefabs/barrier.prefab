@@ -102,7 +102,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 2.755, y: 0.08, z: 0.1}
+  m_Extents: {x: 2.035, y: 0.41, z: 0.1}
   m_MoveThreshold: 0.34
   m_Carve: 1
   m_CarveOnlyStationary: 1
@@ -194,7 +194,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.07885742, y: -0.11171436}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -204,7 +204,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4.7588654, y: 1.4337149}
   m_EdgeRadius: 0
 --- !u!95 &7022870618529714227
 Animator:
