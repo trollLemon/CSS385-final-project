@@ -12,6 +12,9 @@ public class AxeController : MonoBehaviour
 
     public int damage = 15;
 
+    public int comboEndDamage = 20;
+    public int superSwingDamage = 40;
+
     private Color originalColor;
     // Start is called before the first frame update
     void Start()
@@ -34,8 +37,21 @@ public class AxeController : MonoBehaviour
         
             if (other.name == "Tree" || other.name == "Tree(Clone)" || other.name == "Enemy" || other.name == "Enemy(Clone)") 
             {
-                HP obj = other.GetComponent<HP>();
-                obj.Damage((float)damage);
+
+                if (playerMovementOld.comboSwing3 == true)
+                {
+                    HP obj = other.GetComponent<HP>();
+                    obj.Damage((float)damage);
+                } else if (playerMovementOld.comboSuperSwing == true)
+                {
+                    HP obj = other.GetComponent<HP>();
+                    obj.Damage((float)comboEndDamage);
+                } else
+                {
+                    HP obj = other.GetComponent<HP>();
+                    obj.Damage((float)superSwingDamage);
+                }
+                
             }
 
     }

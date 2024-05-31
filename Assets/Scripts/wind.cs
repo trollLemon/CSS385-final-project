@@ -22,7 +22,7 @@ public class wind : MonoBehaviour
             spawnTimer -= Time.deltaTime;
         } else {
             spawnWind();
-            spawnTimer = Random.Range(30f, 60f);
+            spawnTimer = Random.Range(15f, 30f);
         }
 
     }
@@ -38,17 +38,17 @@ public class wind : MonoBehaviour
         GameObject thisWind2 = Instantiate(windPrefab, temp, transform.rotation);
         
         // slight variation in size
-        float randomScale = Random.Range(0.5f, 1.5f);
+        float randomScale = Random.Range(8f, 10f);
         thisWind.transform.localScale = new Vector3(randomScale, randomScale, randomScale);
-        randomScale = Random.Range(1.5f, 2.5f);
+        randomScale = Random.Range(8f, 10f);
         thisWind2.transform.localScale = new Vector3(randomScale, randomScale, randomScale);
         
         // get anim clip length
         AnimatorClipInfo[] windclip = thisWind.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0);
         float animTime = windclip[0].clip.length;
         // auto destroy object on animation completion
-        Destroy(thisWind, animTime);
-        Destroy(thisWind2, animTime);
+        Destroy(thisWind, 3);
+        Destroy(thisWind2, 3);
 
     }
 }

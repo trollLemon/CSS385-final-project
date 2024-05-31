@@ -158,13 +158,17 @@ public class PlayerMovementOld : MonoBehaviour
         // Keep track of mouse position
         mouseWorldPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKey(KeyCode.R) && ((inv.selectedItem == 2 && inv.coal > 0 && inv.sticks > 0) || (inv.selectedItem == 3 && inv.logs > 0)))
         {
+            Debug.Log("Player is Crafting");
             isCrafting = true;
             movementState = MovementState.Standing;
+            animator.SetBool("IsCrafting", true);
         } else
         {
             isCrafting = false;
+
+            animator.SetBool("IsCrafting", false);
         }
 
         if (!isAttacking && !isCrafting)
@@ -261,6 +265,16 @@ public class PlayerMovementOld : MonoBehaviour
 
         if(inv.selectedItem == 0 && changeSelected) {
 
+            endOfSwing = false;
+            isAttacking = false;
+            comboSwing1 = false;
+            comboSwing2 = false;
+            comboSwing3 = false;
+            superSwingPrimed = false;
+            comboSuperSwing = false;
+            arcPoints.Clear();
+            animator.SetBool("isAttacking", false);
+
             Destroy(heldObject);
             isHoldingObject = false;
             changeSelected = false;
@@ -324,6 +338,16 @@ public class PlayerMovementOld : MonoBehaviour
 
         } else if (inv.selectedItem == 2 && changeSelected)
         {
+
+            endOfSwing = false;
+            isAttacking = false;
+            comboSwing1 = false;
+            comboSwing2 = false;
+            comboSwing3 = false;
+            superSwingPrimed = false;
+            comboSuperSwing = false;
+            arcPoints.Clear();
+            animator.SetBool("isAttacking", false);
             
             if (heldObject != null) {
                 Destroy(heldObject);
@@ -374,9 +398,10 @@ public class PlayerMovementOld : MonoBehaviour
 
         //handle rotating the barrier 
         if(inv.selectedItem==3 && heldObject!=null){
-                float rotationDegrees = barrierDirection == BarrierDirection.Horizontal ? 90f: 0f;
+                float rotationDegrees = barrierDirection == BarrierDirection.Horizontal ? 0f: 90f;
                 Quaternion rotation = transform.rotation * Quaternion.Euler(0, 0, rotationDegrees);
                 heldObject.transform.rotation=rotation;
+                heldObject.transform.localPosition = Vector3.zero;
         } 
     }
 
