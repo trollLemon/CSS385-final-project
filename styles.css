@@ -35,8 +35,13 @@ a {
 }
 
 img {
-    width : 80%;
+    width : 100%;
     height : auto;
+}
+
+img.title {
+    width: 80%;
+    height: auto;
 }
 
 iframe {
