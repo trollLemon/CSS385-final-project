@@ -24,93 +24,90 @@
         <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">Alaskan Nightfall Gold Rush</div>
       </div>
-    </div>
-    <!-- insert controls in a div here + go back button -->
-    <div class = "blankDiv">
+      <div class = "main">
 
-    </div>
-    <div class = "main">
-
-      <div class = "banner">
-        <h2>
-
-        </h2>
-      </div>
-      <div class = "banner">
+        <div class = "banner">
+          <h2>
+  
+          </h2>
+        </div>
+        <div class = "banner">
+            <div class = "bcol">
+                <!-- button input -->
+              <p>WASD</p>
+            </div>
+            <div class = "bcol ralign">
+                <!-- what it does -->
+                <p>Player movement</p>
+            </div>
+        </div>
+        <div class = "banner">
           <div class = "bcol">
               <!-- button input -->
-            <p>WASD</p>
+            <p>Q / Mouse Wheel</p>
           </div>
           <div class = "bcol ralign">
               <!-- what it does -->
-              <p>Player movement</p>
+              <p>Move through inventory</p>
           </div>
       </div>
       <div class = "banner">
         <div class = "bcol">
             <!-- button input -->
-          <p>Q / Mouse Wheel</p>
+          <p>R</p>
         </div>
         <div class = "bcol ralign">
             <!-- what it does -->
-            <p>Move through inventory</p>
+            <p>Crafting</p>
         </div>
     </div>
     <div class = "banner">
       <div class = "bcol">
           <!-- button input -->
-        <p>R</p>
+        <p>E</p>
       </div>
       <div class = "bcol ralign">
           <!-- what it does -->
-          <p>Crafting</p>
+          <p>Look into the distance</p>
       </div>
   </div>
   <div class = "banner">
     <div class = "bcol">
         <!-- button input -->
-      <p>E</p>
+      <p>Left Click</p>
     </div>
     <div class = "bcol ralign">
         <!-- what it does -->
-        <p>Look into the distance</p>
+        <p>Attack<br/>Multiple clicks for combo<br/>Wait before clicking after second swing for a combo finisher!</p>
     </div>
-</div>
-<div class = "banner">
-  <div class = "bcol">
-      <!-- button input -->
-    <p>Left Click</p>
   </div>
-  <div class = "bcol ralign">
-      <!-- what it does -->
-      <p>Attack<br/>Multiple clicks for combo<br/>Wait before clicking after second swing for a combo finisher!</p>
+  <div class = "banner">
+    <div class = "bcol">
+        <!-- button input -->
+      <p>Hold Right Click</p>
+    </div>
+    <div class = "bcol ralign">
+        <!-- what it does -->
+        <p>Blocking</p>
+    </div>
   </div>
-</div>
-<div class = "banner">
-  <div class = "bcol">
-      <!-- button input -->
-    <p>Hold Right Click</p>
+  <div class = "banner">
+    <div class = "bcol">
+        <!-- button input -->
+      <p>Left Click While Blocking</p>
+    </div>
+    <div class = "bcol ralign">
+        <!-- what it does -->
+        <p>Bunt enemies away</p>
+    </div>
   </div>
-  <div class = "bcol ralign">
-      <!-- what it does -->
-      <p>Blocking</p>
-  </div>
-</div>
-<div class = "banner">
-  <div class = "bcol">
-      <!-- button input -->
-    <p>Left Click While Blocking</p>
-  </div>
-  <div class = "bcol ralign">
-      <!-- what it does -->
-      <p>Bunt enemies away</p>
-  </div>
-</div>
-      <div class = "banner">
-          <!-- home button -->
-          <a href = "../../index.html"><div class = "button">Return to Home</div></a>
-      </div>
-  </div>
+        <div class = "banner">
+            <!-- home button -->
+            <a href = "../../index.html"><div class = "button">Return to Home</div></a>
+        </div>
+    </div>
+    </div>
+    
     <script>
       var canvas = document.querySelector("#unity-canvas");
 
@@ -198,10 +195,6 @@
                 alert(message);
               });
             };
-
-            let absoluteDivHeight = document.getElementById('unity-container')[0].offsetHeight;
-            let blankDiv = document.getElementByClassName('blankDiv')[0];
-            blankDiv.style.height = absoluteDivHeight + 5 + "px";
 
       document.body.appendChild(script);
 
